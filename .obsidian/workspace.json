@@ -1,0 +1,241 @@
+{
+  "main": {
+    "id": "81770297d5b7ca62",
+    "type": "split",
+    "children": [
+      {
+        "id": "9ce782af18fe908a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d8ec6f74d657aa90",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Pre_Consultation_Engagement_Flow.canvas",
+                "viewState": {
+                  "x": -228.80699842198374,
+                  "y": -8980.488835314516,
+                  "zoom": -0.1882467981641508
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Pre_Consultation_Engagement_Flow"
+            }
+          },
+          {
+            "id": "a96df66cb762210c",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Pre_Consultation_Engagement_Flow.canvas",
+                "viewState": {
+                  "x": 1180,
+                  "y": -8222.5,
+                  "zoom": -2.430369153034835
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Pre_Consultation_Engagement_Flow"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2084220b5c0dd3dc",
+    "type": "split",
+    "children": [
+      {
+        "id": "947e0fdc4cbaa19f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f635c929621d7ca7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6e09d076843111f9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "67bedaa454d6b796",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 282.5
+  },
+  "right": {
+    "id": "df3f8df725ff8bf3",
+    "type": "split",
+    "children": [
+      {
+        "id": "807baf8e90df04d6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e5ac68a1eaef02b5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "features/doc_Pre_Consultation_Engagement_Chat/Pre_Consultation_Engagement_PRD.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Pre_Consultation_Engagement_PRD"
+            }
+          },
+          {
+            "id": "b7f2e1ee6e3e0e47",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "features/Untitled.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Untitled"
+            }
+          },
+          {
+            "id": "11d9f632071f6356",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0fd6b1d47b10b419",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "features/Untitled.canvas",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Untitled"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "a96df66cb762210c",
+  "lastOpenFiles": [
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Pre_Consultation_Engagement_Chat_Flow_Diagram.canvas",
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Patient context creation.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Modern_Agent_Architecture_Gaps.canvas",
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Medical_form.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/engagement_task.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Make Agent/Google script/syncNewMessagesToJsonWithFlag.js",
+    "features/doc_Pre_Consultation_Engagement_Chat/1_Conceptualization/Pre_Consultation_Engagement_Flow.canvas",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Make Agent/Agent Versions.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Make Agent/make_scenario_prompt.md",
+    "Google script changes.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Make Agent/Google script",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Pre_Consultation_Engagement_Chat_Flow_Diagram.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Pre_Consultation_Engagement_Chat_Documentation.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/Test_Dataset/Instructions DataSet creation for Agent test.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/Test_Dataset/test_dataset.tsv",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/DataSet creation for Agent test.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/Test_Dataset",
+    "split_conversations.py",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/TSV original dataset.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/Medical_Form_Experiment_ChatBot - WA_messages_Json.tsv",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/make_scenario_prompt.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/Knowledge base/program_faq_knowledge_base.json",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/Knowledge base/medical_faq_knowledge_base.json",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/Knowledge base/clinical_guide_knowledge_base.json",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/Knowledge base/Medical_Form_Experiment_ChatBot - KnowledgeBase_ProgramFAQ.tsv",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Latitude Agent/Knowledge base/Guia_Clinica_Tratamiento_Obesidad.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/20251222 Make Agent/Knowledge base/Guia_Clinica_Tratamiento_Obesidad.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Agent Set up/Knowledge base/Guia_Clinica_Tratamiento_Obesidad.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Prompts/Knowledge base/Guia_Clinica_Tratamiento_Obesidad.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Prompts/20251222 Make Agent/make_scenario_prompt.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Prompts/make_scenario_prompt.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/2_Prototyping/Knowledge base/Guia_Clinica_Tratamiento_Obesidad.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/MVP & Phasing of the project/Phase_1_Documentation.md",
+    "features/doc_User_Discovery/Interview_ManueNotes/Untitled.md",
+    "features/doc_Pre_Consultation_Engagement_Report/general/Pre_Consultation_Engagement_Report_PRD.md",
+    "features/doc_Pre_Consultation_Engagement_Report/general/Pre_Consultation_Engagement_Report_Idea.md",
+    "features/doc_Treatment_Program/doc_PT_Treatment/User insights from PTs.md",
+    "Transcriptions/transcription_source/Tech, Product and Ops biweekly aligment - 2025 12 04 10:44 CET - Notes by Gemini.md",
+    "features/doc_Pre_Consultation_Engagement_Chat/Pre_Consultation_Engagement_Flow.canvas",
+    "features/doc_FirstSessionNotes/Insights from first session transcription.canvas",
+    "features/doc_User_Discovery/Interview_ManueNotes/2026_Opportunities.canvas",
+    "user_research/Script User_Discovery.canvas",
+    "features/doc_2025_Vision/2025_Claude_Balance_Vision_Gap_Analysis_CPO_Presentation.canvas",
+    "AI_Output/2025_Claude_Balance_Vision_Gap_Analysis_CPO_Presentation.canvas",
+    "features/flow.canvas"
+  ]
+}

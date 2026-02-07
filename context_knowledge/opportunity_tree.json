@@ -1,0 +1,273 @@
+{
+  "opportunity_tree": {
+    "opportunities": [
+      {
+        "id": "1",
+        "title": "Medical Personalized Follow-Up",
+        "explanation": "Patients with obesity feel uncertain about whether their treatment is working. They struggle to interpret progress, understand medical results, or access reliable feedback. This lack of personalized medical visibility reduces adherence and trust in the process.",
+        "children": [
+          {
+            "id": "1.1",
+            "title": "How do I know the treatment is working?",
+            "explanation": "Patients need reassurance and evidence of progress — not just in weight, but in overall health. When they don't perceive results, motivation drops sharply.",
+            "children": [
+              {
+                "id": "1.1.1",
+                "title": "Difficulty perceiving physical evolution",
+                "explanation": "Patients focus solely on weight and ignore other physical improvements (body composition, size, posture). They feel 'stuck' even when real progress occurs, causing frustration."
+              },
+              {
+                "id": "1.1.2",
+                "title": "Lack of understanding of internal health changes",
+                "explanation": "Users don't understand medical parameters like glucose or cholesterol, so they fail to connect them with progress. This makes improvements feel meaningless."
+              },
+              {
+                "id": "1.1.3",
+                "title": "Absence of personalized progress feedback",
+                "explanation": "Patients feel unseen when doctors or systems don't proactively acknowledge their progress. They need consistent validation and interpretation."
+              }
+            ]
+          },
+          {
+            "id": "1.2",
+            "title": "Medication Follow-Up",
+            "explanation": "GLP-1 and other obesity medications require careful monitoring. Patients fear using them incorrectly or suffering from side effects without proper support.",
+            "children": [
+              {
+                "id": "1.2.1",
+                "title": "Uncertainty about correct dosage and usage",
+                "explanation": "Users often don't know how to administer medication correctly, or what to do after missing a dose — creating anxiety and inconsistency."
+              },
+              {
+                "id": "1.2.2",
+                "title": "Fear about effectiveness and side effects",
+                "explanation": "Patients worry that the medication isn't 'working' or that their reactions are abnormal. Without reassurance, they quit early."
+              },
+              {
+                "id": "1.2.3",
+                "title": "Lack of access to medical guidance between appointments",
+                "explanation": "Users don't know where to turn when something feels wrong. They need timely answers, but current systems are slow and impersonal."
+              },
+              {
+                "id": "1.2.4",
+                "title": "Difficulty maintaining adherence over time",
+                "explanation": "Interruptions in prescriptions, travel, or confusion cause treatment breaks, leading to relapse and discouragement."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Diet Management",
+        "explanation": "Diet is a central pillar of treatment, yet most patients struggle with sustainability. They lack understanding, personalization, and continuous adaptation — turning eating into a source of stress instead of empowerment.",
+        "children": [
+          {
+            "id": "2.1",
+            "title": "Caloric deficit confusion",
+            "explanation": "Patients don't know how to balance intake and activity. They either under-eat (causing fatigue) or overeat unintentionally, losing consistency."
+          },
+          {
+            "id": "2.2",
+            "title": "Lack of willpower and feedback",
+            "explanation": "Many users lose motivation because progress feels slow or unseen. They don't receive ongoing recognition for small victories."
+          },
+          {
+            "id": "2.3",
+            "title": "Difficulty adapting the diet over time",
+            "explanation": "When results plateau, patients don't know how to adjust. Static diets make them feel 'stuck' and lead to abandonment."
+          },
+          {
+            "id": "2.4",
+            "title": "Diet doesn't fit personal taste or context",
+            "explanation": "Users reject rigid meal plans because they don't match their routines, food preferences, or cultural habits."
+          },
+          {
+            "id": "2.5",
+            "title": "Difficulty following diet under real-life conditions",
+            "explanation": "Travel, social events, or lack of time push patients toward unhealthy choices. They feel guilt and lose adherence without knowing how to cope."
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Effort and Motivation",
+        "explanation": "Patients expect rapid, easy weight loss. When effort feels too high compared to perceived results, they give up. The main barriers are psychological, emotional, and contextual rather than informational.",
+        "children": [
+          {
+            "id": "3.1",
+            "title": "Effort overload perception",
+            "explanation": "Patients feel that losing weight requires extreme effort or sacrifice. They believe they lack discipline and feel shame when progress slows."
+          },
+          {
+            "id": "3.2",
+            "title": "Need for immediate results",
+            "explanation": "Without fast, visible improvements, users lose interest. They don't recognize health gains that aren't reflected on the scale."
+          },
+          {
+            "id": "3.3",
+            "title": "Economic burden perception",
+            "explanation": "Patients perceive the program as expensive and fear it may not be worth the cost if results take long."
+          },
+          {
+            "id": "3.4",
+            "title": "Wrong habits and emotional triggers",
+            "explanation": "Obesity is often tied to emotional or environmental triggers. Patients lack awareness or tools to manage them.",
+            "children": [
+              {
+                "id": "3.4.1",
+                "title": "Emotional eating",
+                "explanation": "Users eat impulsively to handle emotions like stress, sadness, or boredom — then feel guilt and self-blame."
+              },
+              {
+                "id": "3.4.2",
+                "title": "Lack of access to treatment tools in daily life",
+                "explanation": "Busy schedules, travel, or lack of flexibility make it hard to maintain routines, causing relapse."
+              },
+              {
+                "id": "3.4.3",
+                "title": "Lack of emotional or motivational reinforcement",
+                "explanation": "Patients rarely receive recognition or reward for effort. They feel unseen and unmotivated."
+              },
+              {
+                "id": "3.4.4",
+                "title": "Lack of time for cooking or exercise",
+                "explanation": "Users know what they 'should' do but can't fit it into daily life. Fast, processed food becomes their default."
+              },
+              {
+                "id": "3.4.5",
+                "title": "Lack of strategies to cope with high-risk situations",
+                "explanation": "Patients don't know how to handle cravings, holidays, or stress events without derailing their progress."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "title": "Habit Forming & Long-Term Maintenance",
+        "explanation": "After stopping medication, many patients regain weight. They never built lasting habits — only temporary compliance. The opportunity is to help them internalize healthy behaviors and identity changes.",
+        "children": [
+          {
+            "id": "4.1",
+            "title": "Fear of relapse after treatment ends",
+            "explanation": "Patients feel dependent on medication and doubt their ability to maintain weight without it."
+          },
+          {
+            "id": "4.2",
+            "title": "Difficulty creating new reward systems",
+            "explanation": "Food is their main emotional reward. They struggle to replace it with healthier alternatives."
+          },
+          {
+            "id": "4.3",
+            "title": "Inability to recognize progress beyond weight",
+            "explanation": "Users don't see or celebrate improvements in energy, sleep, or well-being — which makes maintenance less motivating."
+          },
+          {
+            "id": "4.4",
+            "title": "Weak health identity",
+            "explanation": "Patients still see themselves as 'trying to lose weight' instead of 'living healthy.' They haven't internalized the new identity."
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "title": "Community & Human Support",
+        "explanation": "Weight loss can be isolating. Patients feel misunderstood, ashamed, or unsupported. The absence of empathetic human connection reduces adherence and resilience.",
+        "children": [
+          {
+            "id": "5.1",
+            "title": "Limited access to trusted professionals",
+            "explanation": "Users want guidance but can't always reach their nutritionist, doctor, or coach when they need it most."
+          },
+          {
+            "id": "5.2",
+            "title": "Lack of social and emotional support",
+            "explanation": "Patients feel alone in their journey and fear judgment from others. Without peer empathy, they lose motivation."
+          },
+          {
+            "id": "5.3",
+            "title": "Difficulty maintaining engagement remotely",
+            "explanation": "Digital communication feels impersonal; users need a balance between technology and real human connection."
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "title": "Intelligent Scalability (AI + Human Team)",
+        "explanation": "The healthcare system is limited by time and 1:1 capacity. Professionals can't monitor every patient daily, and apps alone can't provide empathy. The opportunity lies in bridging both worlds.",
+        "children": [
+          {
+            "id": "6.1",
+            "title": "Lack of continuous guidance",
+            "explanation": "Patients need frequent touchpoints, but clinicians can't provide them due to time constraints."
+          },
+          {
+            "id": "6.2",
+            "title": "Professionals overwhelmed by manual work",
+            "explanation": "Doctors and nutritionists spend excessive time reviewing data, leaving less time for meaningful interactions."
+          },
+          {
+            "id": "6.3",
+            "title": "Fragmented patient information",
+            "explanation": "Each specialist sees only part of the story. Without centralized context, care is inefficient and disjointed."
+          },
+          {
+            "id": "6.4",
+            "title": "Limited personalization capacity at scale",
+            "explanation": "Clinicians can't tailor programs for hundreds of users without automation and contextual support."
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "title": "Content & Education",
+        "explanation": "Patients lack scientific understanding of obesity and health. Misinformation and oversimplified diets lead to confusion, frustration, and harmful behaviors.",
+        "children": [
+          {
+            "id": "7.1",
+            "title": "Poor understanding of nutrition science",
+            "explanation": "Patients are bombarded with contradictory advice and don't know whom to trust."
+          },
+          {
+            "id": "7.2",
+            "title": "Lack of education on medication mechanisms",
+            "explanation": "Users fear medication or misuse it because they don't understand how it works or what side effects are normal."
+          },
+          {
+            "id": "7.3",
+            "title": "Lack of structured, easy-to-digest learning",
+            "explanation": "Long texts or complex medical language discourage engagement. People need microlearning adapted to their cognitive load."
+          },
+          {
+            "id": "7.4",
+            "title": "Emotional disconnect from learning",
+            "explanation": "Users don't relate educational content to their own experiences, so it doesn't lead to action."
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "title": "My Health Impact",
+        "explanation": "Patients want to feel healthier, not just lighter. Yet, they can't perceive how their actions improve long-term health outcomes — so motivation remains tied to aesthetics.",
+        "children": [
+          {
+            "id": "8.1",
+            "title": "Lack of visibility of biomarker improvement",
+            "explanation": "Users don't see trends in lab results or understand what they mean for their health."
+          },
+          {
+            "id": "8.2",
+            "title": "Inability to measure real health outcomes",
+            "explanation": "They can't track how treatment reduces disease risk or improves energy, sleep, or mood."
+          },
+          {
+            "id": "8.3",
+            "title": "Disconnection between effort and longevity",
+            "explanation": "Patients don't realize how small daily actions extend life expectancy or quality of life — missing a powerful motivator."
+          }
+        ]
+      }
+    ]
+  }
+}

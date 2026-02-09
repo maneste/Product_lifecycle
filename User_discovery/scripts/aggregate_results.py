@@ -63,7 +63,7 @@ class ResultAggregator:
             # Get absolute path: User_discovery/scripts/aggregate_results.py -> User_discovery
             self.base_path = Path(__file__).parent.parent.resolve()
 
-        # Project root is Feature_Building (parent of User_discovery)
+        # Project root is parent of User_discovery
         self.project_root = self.base_path.parent.resolve()
         self.processed_dir = self.project_root / "Transcriptions" / "processed_interviews"
         self.outputs_dir = self.base_path / "outputs"
@@ -83,8 +83,8 @@ class ResultAggregator:
 
     def load_opportunity_tree(self):
         """Load opportunity tree structure from context_knowledge"""
-        # Use absolute path
-        tree_path = Path("/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json").resolve()
+        # Relative to project root
+        tree_path = (self.project_root / "context_knowledge" / "opportunity_tree.json").resolve()
         
         if not tree_path.exists():
             print_error(f"Opportunity tree not found: {tree_path}")

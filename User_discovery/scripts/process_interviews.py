@@ -89,11 +89,11 @@ class InterviewProcessor:
             # Get absolute path: User_discovery/scripts/process_interviews.py -> User_discovery
             self.base_path = Path(__file__).parent.parent.resolve()
 
-        # Project root is always Feature_Building (parent of User_discovery)
+        # Project root is parent of User_discovery
         self.project_root = self.base_path.parent.resolve()
-        
-        # Source directory - use absolute path
-        self.source_dir = Path("/Users/manuelnunezlema/Documents/GitHub/Feature_Building/Transcriptions/transcription_source").resolve()
+
+        # Source directory - relative to project root
+        self.source_dir = (self.project_root / "Transcriptions" / "transcription_source").resolve()
         self.processed_dir = self.project_root / "Transcriptions" / "processed_interviews"
         self.processed_dir.mkdir(parents=True, exist_ok=True)
 
@@ -218,7 +218,7 @@ class InterviewProcessor:
         """Find interview files in source directory"""
         if not self.source_dir or not self.source_dir.exists():
             print_error(f"Source directory not found: {self.source_dir}")
-            print_info("Expected location: /Users/manuelnunezlema/Documents/GitHub/Feature_Building/Transcriptions/transcription_source")
+            print_info(f"Expected location: {self.project_root / 'Transcriptions' / 'transcription_source'}")
             print_info("Please check that the Transcriptions folder exists and contains transcription_source/")
             return []
 

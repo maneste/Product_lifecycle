@@ -280,14 +280,13 @@ ln -s ~/Library/CloudStorage/OneDrive-Personal/Claude_Balance_Features features
 ## Step 3: Set Up Transcriptions/ (Google Drive Symlinks)
 
 ```bash
-mkdir Transcriptions
-cd Transcriptions
+mkdir -p Transcriptions
 
 # Link to user interview transcripts (adjust email for your account)
-ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/Trans_MD transcription_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/Trans_MD Transcriptions/transcription_source
 
 # Link to first consultation transcripts
-ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript 1st_consultation_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript Transcriptions/1st_consultation_source
 ```
 
 ## Step 4: Set Up User_discovery/.env

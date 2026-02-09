@@ -498,4 +498,4 @@ Tell the user:
 - **Validate as you go** - Check JSON validity after creating each JSON file
 - **Don't skip steps** - Each file builds context for the next (Vision → Persona → Flow → Opportunities → Evidence → Benchmark → Notifications)
 - **Save after each file** - Don't wait until the end to save everything
-- **The context_knowledge/ folder is gitignored** - Remind the user these files stay local and need to be synced separately (see CLAUDE.md for sync options)
+- **The context_knowledge/ folder is gitignored** - Remind the user these files stay local and need to be synced separately (see claude.md for sync options)

@@ -28,7 +28,7 @@
 - Guides user to run standalone scripts first (recommended)
 - Can still execute through Claude Code if requested
 - Includes troubleshooting and documentation references
-- Aligned with new `bin/` script structure
+- Aligned with current `bin/` script structure
 
 ---
 
@@ -81,21 +81,29 @@ The `/transcripts` command will:
 
 ## Standalone Scripts (No Claude Needed)
 
-The recommended approach is to run scripts directly:
+The recommended approach for user research is to run scripts directly:
 
-**First Consultation:**
+**Full Pipeline (process + aggregate):**
 ```bash
 cd User_discovery
-bin/first_consultation
+bin/run
 ```
 
-**User Research:**
+**Process Interviews Only:**
 ```bash
 cd User_discovery
-bin/User_discovery
+bin/process
 ```
 
-See `User_discovery/CHEATSHEET.md` for quick reference.
+**Aggregate Results Only:**
+```bash
+cd User_discovery
+bin/aggregate
+```
+
+See `User_discovery/README.md` for full documentation.
+
+**Note:** The first consultation pipeline does not have a standalone script — use `/transcripts` and select option 1.
 
 ---
 
@@ -106,6 +114,7 @@ Use the Claude command when you:
 - Want help troubleshooting
 - Prefer Claude to execute it for you
 - Are unsure about available options
+- Need the first consultation pipeline
 
 Run scripts directly when you:
 - Know which pipeline you need
@@ -119,9 +128,7 @@ Run scripts directly when you:
 
 - **Command definition:** `.claude/commands/transcripts.md`
 - **Command docs:** `.claude/COMMANDS_README.md`
-- **User guide:** `User_discovery/docs/RUN_WITHOUT_AI.md`
-- **Quick reference:** `User_discovery/CHEATSHEET.md`
-- **Folder structure:** `User_discovery/STRUCTURE.md`
+- **User discovery docs:** `User_discovery/README.md`
 
 ---
 
@@ -129,7 +136,7 @@ Run scripts directly when you:
 
 **None.** The old commands are removed but their functionality is preserved in:
 1. The new `/transcripts` command
-2. The standalone `bin/` scripts (recommended)
+2. The standalone `bin/` scripts (recommended for user research)
 
 ---
 
@@ -138,8 +145,6 @@ Run scripts directly when you:
 If you need to restore the old commands:
 
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building
-
 # Restore from git history
 git log --all --full-history -- ".claude/commands/process-*.md"
 git checkout <commit-hash> -- .claude/commands/process-FirstConsultation.md

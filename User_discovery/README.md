@@ -113,7 +113,7 @@ bin/aggregate --output my_summary.json
 ## Folder Structure
 
 ```
-Feature_Building/
+Product_lifecycle/
 ├── User_discovery/
 │   ├── README.md                    # This file
 │   ├── .env                         # OpenAI API key (gitignored)

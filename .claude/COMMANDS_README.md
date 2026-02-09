@@ -19,7 +19,7 @@
 
 Claude will ask which pipeline you want to run:
 1. First Consultation Pipeline (move + consolidate to CSV)
-2. User Research Pipeline (move + process via Latitude + generate reports)
+2. User Research Pipeline (process + aggregate via OpenAI)
 3. Show me how to run them myself
 
 **Recommendation:** The command will guide you to run scripts directly in your terminal (faster and can be automated) rather than through Claude Code.
@@ -28,25 +28,28 @@ Claude will ask which pipeline you want to run:
 
 ## Direct Script Usage (No Claude Code Needed)
 
-You can bypass Claude Code entirely and run scripts directly:
+You can bypass Claude Code entirely and run user research scripts directly:
 
-### First Consultation Pipeline
+### User Research Pipeline (full)
 ```bash
 cd User_discovery
-bin/first_consultation
+bin/run
 ```
 
-### User Research Pipeline
+### Process Interviews Only
 ```bash
 cd User_discovery
-bin/User_discovery
+bin/process
 ```
 
-### Quick Reference
-See: `User_discovery/CHEATSHEET.md`
+### Aggregate Results Only
+```bash
+cd User_discovery
+bin/aggregate
+```
 
-### Complete Guide
-See: `User_discovery/docs/RUN_WITHOUT_AI.md`
+### Documentation
+See: `User_discovery/README.md`
 
 ---
 
@@ -57,6 +60,7 @@ Use `/transcripts` when you:
 - Need help troubleshooting
 - Want Claude to execute it for you
 - Are unsure about the available options
+- Need the first consultation pipeline (no standalone script)
 
 Run scripts directly when you:
 - Know which pipeline you need
@@ -66,7 +70,7 @@ Run scripts directly when you:
 
 ---
 
-## Command Changes
+## Command History
 
 **Before:** Two separate commands
 - `/process-FirstConsultation`
@@ -79,7 +83,7 @@ Run scripts directly when you:
 - Simpler - one command to remember
 - Smarter - guides you to run scripts directly
 - Flexible - can still run through Claude if needed
-- Up-to-date - references new bin/ structure
+- Up-to-date - references current bin/ structure
 
 ---
 
@@ -92,19 +96,13 @@ Run scripts directly when you:
 - Provides terminal commands for direct execution
 - Offers to run scripts via Claude Code if requested
 - Includes troubleshooting guidance
-- References new organized folder structure
 
 **Documentation:**
-- Uses new `bin/` executables
-- Points to `docs/` for detailed guides
-- References `CHEATSHEET.md` for quick help
-- Aligned with reorganized structure
+- Uses `bin/run`, `bin/process`, `bin/aggregate` executables
+- Points to `User_discovery/README.md` for detailed documentation
 
 ---
 
 ## Related Documentation
 
 - `User_discovery/README.md` - Main documentation entry point
-- `User_discovery/CHEATSHEET.md` - Quick command reference
-- `User_discovery/STRUCTURE.md` - Folder organization
-- `User_discovery/docs/RUN_WITHOUT_AI.md` - Complete standalone guide

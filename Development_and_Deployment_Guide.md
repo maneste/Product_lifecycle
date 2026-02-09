@@ -31,7 +31,6 @@ These folders and files are already included in the repository:
 | `.claude/commands/` | Custom slash commands (/init-context, /update-*, /transcripts) |
 | `AI_Output/` | Agent-generated feature documentation (staging area) |
 | `context_knowledge/` | Private knowledge base (opportunity tree, benchmarks, personas, etc.) |
-| `context_knowledge_markdown/` | Markdown versions of context knowledge files |
 | `User_discovery/` | User interview processing scripts and tools |
 | `feature-template/` | Code and implementation templates |
 
@@ -54,7 +53,7 @@ The `features/` folder stores finalized feature documentation and user research 
 **Prerequisites:** OneDrive desktop app installed and signed in.
 
 ```bash
-cd Feature_Building
+cd Product_lifecycle
 
 # Create the OneDrive folder (first time only, on your primary device)
 mkdir -p ~/Library/CloudStorage/OneDrive-Personal/Claude_Balance_Features
@@ -86,23 +85,19 @@ The `Transcriptions/` folder provides access to raw transcript files from Google
 **Prerequisites:** Google Drive desktop app installed, signed in, and synced.
 
 ```bash
-cd Feature_Building
+cd Product_lifecycle
 
 # Create the Transcriptions folder
 mkdir -p Transcriptions
 
-cd Transcriptions
-
 # Create symlink to user research interview transcripts
-ln -s ~/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi\ unidad/Meet\ Recordings/Trans_MD transcription_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/Trans_MD Transcriptions/transcription_source
 
 # Create symlink to first consultation transcripts
-ln -s ~/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript 1st_consultation_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript Transcriptions/1st_consultation_source
 
 # Create the processed interviews folder (output from User_discovery scripts)
-mkdir -p processed_interviews
-
-cd ..
+mkdir -p Transcriptions/processed_interviews
 ```
 
 **Verify setup:**
@@ -152,7 +147,7 @@ EOF
 **User_research scripts (Latitude API):**
 ```bash
 # If using the user_research pipeline, check its docs for required env vars
-# See: user_research/docs/RUN_WITHOUT_AI.md
+# See: User_discovery/README.md
 ```
 
 ---
@@ -162,7 +157,7 @@ EOF
 Run this verification checklist:
 
 ```bash
-cd Feature_Building
+cd Product_lifecycle
 
 # 1. Check features/ symlink
 echo "--- features/ ---"
@@ -204,15 +199,15 @@ Copy-paste this block to set up everything at once on a new machine:
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd Feature_Building
+cd Product_lifecycle
 
 # 1. features/ → OneDrive symlink
 ln -s ~/Library/CloudStorage/OneDrive-Personal/Claude_Balance_Features features
 
 # 2. Transcriptions/ folder with Google Drive symlinks
 mkdir -p Transcriptions
-ln -s ~/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi\ unidad/Meet\ Recordings/Trans_MD Transcriptions/transcription_source
-ln -s ~/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript Transcriptions/1st_consultation_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/Trans_MD Transcriptions/transcription_source
+ln -s ~/Library/CloudStorage/GoogleDrive-<your-email>/Mi\ unidad/Meet\ Recordings/1st_DoctorTranscript Transcriptions/1st_consultation_source
 mkdir -p Transcriptions/processed_interviews
 
 # 3. Environment variables
@@ -227,17 +222,16 @@ ls -la features Transcriptions/
 ### Folder Map: What's Tracked vs. Not Tracked
 
 ```
-Feature_Building/
+Product_lifecycle/
 │
 │   TRACKED (in git - available after clone)
 ├── .claude/agents/                    # Agent configs
 ├── .claude/commands/                  # Slash commands
 ├── AI_Output/                         # Feature docs staging area
 ├── context_knowledge/                 # Knowledge base (opportunity tree, personas, etc.)
-├── context_knowledge_markdown/        # Markdown versions
 ├── User_discovery/                    # Interview processing scripts
 ├── feature-template/                  # Code templates
-├── CLAUDE.md                          # Project instructions
+├── claude.md                          # Project instructions
 ├── Development_and_Deployment_Guide.md # This file
 ├── .gitignore
 │

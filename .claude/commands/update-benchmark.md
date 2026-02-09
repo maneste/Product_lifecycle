@@ -4,7 +4,7 @@ description: Update the competitive benchmark data in context_knowledge
 
 # Update Competitive Benchmark
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.json`.
+You are helping the user update `context_knowledge/Benchmark_Balance.json`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current benchmark file:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.json
+context_knowledge/Benchmark_Balance.json
 ```
 
 Present a summary:
@@ -60,7 +60,7 @@ After saving, validate the JSON:
 ```bash
 python3 -c "
 import json
-data = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.json'))
+data = json.load(open('context_knowledge/Benchmark_Balance.json'))
 competitors = data['benchmark']['competitors']
 print(f'Valid JSON. {len(competitors)} competitors:')
 for key, comp in competitors.items():

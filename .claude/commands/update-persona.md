@@ -4,7 +4,7 @@ description: Update the user persona in context_knowledge
 
 # Update User Persona
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/User_persona.md`.
+You are helping the user update `context_knowledge/User_persona.md`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current persona file:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/User_persona.md
+context_knowledge/User_persona.md
 ```
 
 Present a brief summary:

@@ -4,7 +4,7 @@ description: Update the app flow diagram in context_knowledge
 
 # Update App Flow
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Balance_App_Flow.md`.
+You are helping the user update `context_knowledge/Balance_App_Flow.md`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current flow file:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Balance_App_Flow.md
+context_knowledge/Balance_App_Flow.md
 ```
 
 Present a summary of the current flow sections:

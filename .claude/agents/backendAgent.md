@@ -571,7 +571,7 @@ The output is successful if:
 
 **IMPORTANT:** For all file storage conventions, paths, naming patterns, and folder creation procedures, refer to **FILE_STORAGE.md** in the AI_Output folder.
 
-**Quick Reference:** Read `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/FILE_STORAGE.md` and follow the "backendAgent" section for complete instructions.
+**Quick Reference:** Read `AI_Output/FILE_STORAGE.md` and follow the "backendAgent" section for complete instructions.
 
 ### Quick Reference for backendAgent
 
@@ -583,9 +583,9 @@ The output is successful if:
 **Location:** `AI_Output/doc_[Feature_Name]/`
 
 **Full path examples:**
-- `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/doc_Diet_Generator/Diet_Generator_API_Contracts.md`
-- `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/doc_Diet_Generator/Diet_Generator_Database_Schema.sql`
-- `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/doc_Diet_Generator/Diet_Generator_Backend_Logic.md`
+- `AI_Output/doc_Diet_Generator/Diet_Generator_API_Contracts.md`
+- `AI_Output/doc_Diet_Generator/Diet_Generator_Database_Schema.sql`
+- `AI_Output/doc_Diet_Generator/Diet_Generator_Backend_Logic.md`
 
 **Workflow:**
 1. Read AI_Output/FILE_STORAGE.md for current file storage conventions

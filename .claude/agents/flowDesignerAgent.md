@@ -285,7 +285,7 @@ Before completing your response, verify:
 
 **IMPORTANT:** For all file storage conventions, paths, naming patterns, and folder creation procedures, refer to **FILE_STORAGE.md** in the AI_Output folder.
 
-**Quick Reference:** Read `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/FILE_STORAGE.md` and follow the "flowDesignerAgent" section for complete instructions.
+**Quick Reference:** Read `AI_Output/FILE_STORAGE.md` and follow the "flowDesignerAgent" section for complete instructions.
 
 **If FILE_STORAGE.md is not accessible, ask the user for guidance.**
 

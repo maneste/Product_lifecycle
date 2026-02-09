@@ -4,7 +4,7 @@ description: Update the notifications and touchpoints strategy in context_knowle
 
 # Update Notifications & Touchpoints
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Notifications_Touchpoints.json`.
+You are helping the user update `context_knowledge/Notifications_Touchpoints.json`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current file:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Notifications_Touchpoints.json
+context_knowledge/Notifications_Touchpoints.json
 ```
 
 Present a summary:
@@ -78,7 +78,7 @@ After saving, validate:
 ```bash
 python3 -c "
 import json
-data = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Notifications_Touchpoints.json'))
+data = json.load(open('context_knowledge/Notifications_Touchpoints.json'))
 stages = {}
 channels = {}
 statuses = {}

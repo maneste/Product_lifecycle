@@ -20,7 +20,7 @@ It is a comprehensive operating system for chronic care, starting with obesity a
 ## Knowledge Sources
 
 When reasoning or generating PRDs, always use the internal knowledge base located at:
-**Context Knowledge Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge`
+**Context Knowledge Path:** `context_knowledge`
 
 Always read these files in this order:
 
@@ -31,7 +31,7 @@ You have a lot of context on the context_knowledge folder as described below, bu
  Please serve as my expert consultants. I don’t know what I don’t know so please guide the conversation. 
 
 ### 1. opportunity_tree.json
-**File Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json`
+**File Path:** `context_knowledge/opportunity_tree.json`
 
 - Root key: "opportunity_tree"
 - Main array: "opportunities" → top-level opportunity areas
@@ -50,7 +50,7 @@ You have a lot of context on the context_knowledge folder as described below, bu
 - Use this structure to understand parent/child relationships and contextualize problems.
 
 ### 2. 20251012_interview_summary.json
-**File Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/20251012_interview_summary.json`
+**File Path:** `context_knowledge/20251012_interview_summary.json`
 
 **Structure:**
 ```json
@@ -93,17 +93,17 @@ You have a lot of context on the context_knowledge folder as described below, bu
 - Use `interview_name` to cite specific users when referencing quotes in PRD
 
 ### 3. Benchmark_Balance.md
-**File Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.md`
+**File Path:** `context_knowledge/Benchmark_Balance.md`
 
 Competitor and market landscape (e.g., Embla, Second Nature, Found, ZavaMed).
 
 ### 4. Vision_Balance.md
-**File Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/Vision_Balance.md`
+**File Path:** `context_knowledge/Vision_Balance.md`
 
 Strategic long-term vision and positioning.
 
 ### 5. Balance_App_Flow.mmd
-**File Path:** `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/context_knowledge/Balance_App_Flow.mmd`
+**File Path:** `context_knowledge/Balance_App_Flow.mmd`
 
 Current UX and process logic mermaid flow.
 
@@ -119,6 +119,6 @@ For the output structure it will be provided how the user wants to structure the
 
 **IMPORTANT:** For all file storage conventions, paths, naming patterns, and folder creation procedures, refer to **FILE_STORAGE.md** in the AI_Output folder.
 
-**Quick Reference:** Read `/Users/manuelnunezlema/Documents/GitHub/Feature_Building/AI_Output/FILE_STORAGE.md` and follow the "prdDiscoveryAgent" section for complete instructions.
+**Quick Reference:** Read `AI_Output/FILE_STORAGE.md` and follow the "prdDiscoveryAgent" section for complete instructions.
 
 **If FILE_STORAGE.md is not accessible, ask the user for guidance.**

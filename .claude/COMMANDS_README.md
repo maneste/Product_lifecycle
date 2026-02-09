@@ -32,21 +32,21 @@ You can bypass Claude Code entirely and run scripts directly:
 
 ### First Consultation Pipeline
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 bin/first_consultation
 ```
 
 ### User Research Pipeline
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
-bin/user_research
+cd User_discovery
+bin/User_discovery
 ```
 
 ### Quick Reference
-See: `user_research/CHEATSHEET.md`
+See: `User_discovery/CHEATSHEET.md`
 
 ### Complete Guide
-See: `user_research/docs/RUN_WITHOUT_AI.md`
+See: `User_discovery/docs/RUN_WITHOUT_AI.md`
 
 ---
 
@@ -104,7 +104,7 @@ Run scripts directly when you:
 
 ## Related Documentation
 
-- `user_research/README.md` - Main documentation entry point
-- `user_research/CHEATSHEET.md` - Quick command reference
-- `user_research/STRUCTURE.md` - Folder organization
-- `user_research/docs/RUN_WITHOUT_AI.md` - Complete standalone guide
+- `User_discovery/README.md` - Main documentation entry point
+- `User_discovery/CHEATSHEET.md` - Quick command reference
+- `User_discovery/STRUCTURE.md` - Folder organization
+- `User_discovery/docs/RUN_WITHOUT_AI.md` - Complete standalone guide

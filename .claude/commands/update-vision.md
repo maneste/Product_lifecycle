@@ -4,7 +4,7 @@ description: Update the product vision document in context_knowledge
 
 # Update Product Vision
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Vision_Balance.md`.
+You are helping the user update `context_knowledge/Vision_Balance.md`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current vision file:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Vision_Balance.md
+context_knowledge/Vision_Balance.md
 ```
 
 Present a brief summary of the current content to the user:

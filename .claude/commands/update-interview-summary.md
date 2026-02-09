@@ -4,7 +4,7 @@ description: Update the interview summary evidence in context_knowledge
 
 # Update Interview Summary
 
-You are helping the user update the interview summary JSON file in `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/`.
+You are helping the user update the interview summary JSON file in `context_knowledge/`.
 
 The interview summary file links real user evidence (quotes from interviews) to opportunity tree nodes.
 
@@ -15,12 +15,12 @@ The interview summary file links real user evidence (quotes from interviews) to 
 Look for the interview summary file (may have a date prefix):
 
 ```bash
-ls /Users/manu/Documents/GitHub/Feature_Building/context_knowledge/*interview_summary*
+ls context_knowledge/*interview_summary*
 ```
 
 Read both the interview summary and the opportunity tree:
 - Interview summary: the file found above
-- Opportunity tree: `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json`
+- Opportunity tree: `context_knowledge/opportunity_tree.json`
 
 Present a summary:
 - Metadata (version, source, counts)
@@ -94,9 +94,9 @@ After saving, validate:
 python3 -c "
 import json, os
 # Find summary file
-files = [f for f in os.listdir('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/') if 'interview_summary' in f]
-summary = json.load(open(f'/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/{files[0]}'))
-tree = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json'))
+files = [f for f in os.listdir('context_knowledge/') if 'interview_summary' in f]
+summary = json.load(open(f'context_knowledge/{files[0]}'))
+tree = json.load(open('context_knowledge/opportunity_tree.json'))
 
 # Validate structure
 assert 'metadata' in summary, 'Missing metadata'

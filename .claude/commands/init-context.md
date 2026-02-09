@@ -4,7 +4,7 @@ description: Initialize context_knowledge folder - create all knowledge base fil
 
 # Initialize Context Knowledge Command
 
-You are helping the user set up the `context_knowledge/` folder from scratch. This is the first step when starting with a new clone of the Feature_Building repository or when creating a new product context.
+You are helping the user set up the `context_knowledge/` folder from scratch. This is the first step when starting with a new clone of the Product_lifecycle repository or when creating a new product context.
 
 ## Overview
 
@@ -12,7 +12,7 @@ The `context_knowledge/` folder is the private knowledge base that all agents (p
 
 ## Required Files
 
-The following files must be created in `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/`:
+The following files must be created in `context_knowledge/`:
 
 | # | File | Format | Purpose |
 |---|------|--------|---------|
@@ -31,12 +31,12 @@ The following files must be created in `/Users/manu/Documents/GitHub/Feature_Bui
 First, check what already exists:
 
 ```bash
-ls -la /Users/manu/Documents/GitHub/Feature_Building/context_knowledge/ 2>/dev/null
+ls -la context_knowledge/ 2>/dev/null
 ```
 
 If the folder doesn't exist:
 ```bash
-mkdir -p /Users/manu/Documents/GitHub/Feature_Building/context_knowledge
+mkdir -p context_knowledge
 ```
 
 Report to the user which files already exist and which are missing. Ask if they want to:
@@ -90,7 +90,7 @@ Ask the user to describe their product. Guide them with these questions (ask ONE
 [Closing vision statement]
 ```
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Vision_Balance.md`
+**Save to:** `context_knowledge/Vision_Balance.md`
 
 ---
 
@@ -154,7 +154,7 @@ What They Need from a Solution:
 - [Need 4]
 ```
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/User_persona.md`
+**Save to:** `context_knowledge/User_persona.md`
 
 ---
 
@@ -206,7 +206,7 @@ flowchart TD
 - Group with `%% ─── Section Name` comments
 - Add a "Flow Sections Explained" section below the diagram
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Balance_App_Flow.md`
+**Save to:** `context_knowledge/Balance_App_Flow.md`
 
 ---
 
@@ -274,7 +274,7 @@ Then for each theme, drill down:
 - Each node MUST have: `id`, `title`, `explanation`
 - `children` array is optional (leaf nodes don't need it)
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json`
+**Save to:** `context_knowledge/opportunity_tree.json`
 
 ---
 
@@ -335,7 +335,7 @@ Ask the user:
 - `interview_count` = length of unique `interview_names`
 - `interview_count_text` = human-readable format (e.g., "5 interviews")
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/interview_summary.json`
+**Save to:** `context_knowledge/interview_summary.json`
 
 **Naming convention:** The file name should include the date if it's generated from real data: `YYYYMMDD_interview_summary.json`. If it's an empty scaffold, just use `interview_summary.json`.
 
@@ -391,7 +391,7 @@ Ask the user about their competitive landscape:
 
 **Feature keys should be consistent across all competitors.** Ask the user what feature dimensions matter most for comparison.
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.json`
+**Save to:** `context_knowledge/Benchmark_Balance.json`
 
 ---
 
@@ -431,7 +431,7 @@ Ask the user about their communication strategy:
 ]
 ```
 
-**Save to:** `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Notifications_Touchpoints.json`
+**Save to:** `context_knowledge/Notifications_Touchpoints.json`
 
 ---
 
@@ -441,23 +441,23 @@ After creating all files, validate:
 
 1. **Check all files exist:**
 ```bash
-ls -la /Users/manu/Documents/GitHub/Feature_Building/context_knowledge/
+ls -la context_knowledge/
 ```
 
 2. **Validate JSON files are valid:**
 ```bash
-python3 -c "import json; json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json'))" && echo "opportunity_tree.json: Valid"
-python3 -c "import json; json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Benchmark_Balance.json'))" && echo "Benchmark_Balance.json: Valid"
-python3 -c "import json; json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/Notifications_Touchpoints.json'))" && echo "Notifications_Touchpoints.json: Valid"
+python3 -c "import json; json.load(open('context_knowledge/opportunity_tree.json'))" && echo "opportunity_tree.json: Valid"
+python3 -c "import json; json.load(open('context_knowledge/Benchmark_Balance.json'))" && echo "Benchmark_Balance.json: Valid"
+python3 -c "import json; json.load(open('context_knowledge/Notifications_Touchpoints.json'))" && echo "Notifications_Touchpoints.json: Valid"
 ```
 
 3. **Validate interview_summary matches opportunity_tree:**
 ```bash
 python3 -c "
 import json
-tree = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json'))
-summary_file = [f for f in __import__('os').listdir('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/') if 'interview_summary' in f][0]
-summary = json.load(open(f'/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/{summary_file}'))
+tree = json.load(open('context_knowledge/opportunity_tree.json'))
+summary_file = [f for f in __import__('os').listdir('context_knowledge/') if 'interview_summary' in f][0]
+summary = json.load(open(f'context_knowledge/{summary_file}'))
 
 # Extract all IDs from tree
 def get_ids(nodes):

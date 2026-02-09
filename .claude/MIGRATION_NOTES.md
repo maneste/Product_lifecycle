@@ -85,17 +85,17 @@ The recommended approach is to run scripts directly:
 
 **First Consultation:**
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 bin/first_consultation
 ```
 
 **User Research:**
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
-bin/user_research
+cd User_discovery
+bin/User_discovery
 ```
 
-See `user_research/CHEATSHEET.md` for quick reference.
+See `User_discovery/CHEATSHEET.md` for quick reference.
 
 ---
 
@@ -119,9 +119,9 @@ Run scripts directly when you:
 
 - **Command definition:** `.claude/commands/transcripts.md`
 - **Command docs:** `.claude/COMMANDS_README.md`
-- **User guide:** `user_research/docs/RUN_WITHOUT_AI.md`
-- **Quick reference:** `user_research/CHEATSHEET.md`
-- **Folder structure:** `user_research/STRUCTURE.md`
+- **User guide:** `User_discovery/docs/RUN_WITHOUT_AI.md`
+- **Quick reference:** `User_discovery/CHEATSHEET.md`
+- **Folder structure:** `User_discovery/STRUCTURE.md`
 
 ---
 

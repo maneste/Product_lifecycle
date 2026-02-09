@@ -24,10 +24,10 @@ The user has two main transcription workflows:
 ## Project Structure
 
 ```
-Feature_Building/user_research/
+User_discovery/
 ├── bin/
 │   ├── first_consultation          ← First consultation pipeline
-│   └── user_research               ← User research pipeline
+│   └── User_discovery               ← User research pipeline
 │
 ├── scripts/
 │   └── (Python modules - internal use)
@@ -73,7 +73,7 @@ Based on their choice:
 "You can run the first consultation pipeline directly in your terminal:
 
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 
 # Run with preview and confirmation
 bin/first_consultation
@@ -112,22 +112,22 @@ Would you like me to run it for you, or do you want to run it yourself?"
 "You can run the user research pipeline directly in your terminal:
 
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 
 # Run with preview and confirmation (v1.2 default)
-bin/user_research
+bin/User_discovery
 
 # Quick mode with specific version
-bin/user_research --quick --version v1.3
+bin/User_discovery --quick --version v1.3
 
 # Only move transcripts (skip Latitude processing)
-bin/user_research --skip-process
+bin/User_discovery --skip-process
 
 # Only process existing transcripts (skip moving)
-bin/user_research --skip-move
+bin/User_discovery --skip-move
 
 # Show help
-bin/user_research --help
+bin/User_discovery --help
 ```
 
 **Available versions:**
@@ -161,14 +161,14 @@ Would you like me to run it for you, or do you want to run it yourself?"
 
 **First Consultation Pipeline:**
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 bin/first_consultation
 ```
 
 **User Research Pipeline:**
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
-bin/user_research
+cd User_discovery
+bin/User_discovery
 ```
 
 **Documentation:**
@@ -193,7 +193,7 @@ If the user asks you to run it for them:
 ### For First Consultation:
 
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 bin/first_consultation
 ```
 
@@ -208,8 +208,8 @@ Ask first:
 
 Then run:
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
-bin/user_research [options based on answers]
+cd User_discovery
+bin/User_discovery [options based on answers]
 ```
 
 **Important:** Warn them that Latitude processing takes time (30-60s per transcript).
@@ -231,13 +231,13 @@ If user reports issues:
 ### "Google Drive not found"
 ```bash
 # Check if Google Drive is synced
-ls "/Users/manuelnunezlema/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi unidad/Meet Recordings"
+ls "~/Library/CloudStorage/GoogleDrive-m.lema@findbalance_app/Mi unidad/Meet Recordings"
 ```
 
 ### "Scripts not found"
-They may be in wrong directory. Make sure they're in `user_research/`:
+They may be in wrong directory. Make sure they're in `User_discovery/`:
 ```bash
-cd /Users/manuelnunezlema/Documents/GitHub/Feature_Building/user_research
+cd User_discovery
 ```
 
 ### "No new files to move"
@@ -247,7 +247,7 @@ This is normal! Scripts only move NEW files. All files may already be moved.
 Scripts should already be executable, but if needed:
 ```bash
 chmod +x bin/first_consultation
-chmod +x bin/user_research
+chmod +x bin/User_discovery
 ```
 
 ---

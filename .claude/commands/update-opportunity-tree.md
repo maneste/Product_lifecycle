@@ -4,7 +4,7 @@ description: Update the opportunity tree in context_knowledge
 
 # Update Opportunity Tree
 
-You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json`.
+You are helping the user update `context_knowledge/opportunity_tree.json`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `/Users/manu/Documents/GitHub/Feature_Building/c
 Read the current opportunity tree:
 
 ```
-/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json
+context_knowledge/opportunity_tree.json
 ```
 
 Present a summary to the user:
@@ -60,7 +60,7 @@ After saving, validate the JSON:
 ```bash
 python3 -c "
 import json
-tree = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json'))
+tree = json.load(open('context_knowledge/opportunity_tree.json'))
 def count_nodes(nodes):
     c = len(nodes)
     for n in nodes:
@@ -80,12 +80,12 @@ print(f'Valid JSON. {top_level} top-level opportunities, {total} total nodes.')
 ```bash
 python3 -c "
 import json, os
-tree = json.load(open('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/opportunity_tree.json'))
-summary_files = [f for f in os.listdir('/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/') if 'interview_summary' in f]
+tree = json.load(open('context_knowledge/opportunity_tree.json'))
+summary_files = [f for f in os.listdir('context_knowledge/') if 'interview_summary' in f]
 if not summary_files:
     print('No interview summary found. Run /update-interview-summary to create one.')
 else:
-    summary = json.load(open(f'/Users/manu/Documents/GitHub/Feature_Building/context_knowledge/{summary_files[0]}'))
+    summary = json.load(open(f'context_knowledge/{summary_files[0]}'))
     def get_ids(nodes):
         ids = set()
         for n in nodes:

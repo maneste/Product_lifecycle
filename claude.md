@@ -16,7 +16,6 @@ This repository manages the full product lifecycle for the Balance app: from use
 Product_lifecycle/
 ├── .claude/
 │   ├── agents/
-│   │   ├── flowDesignerAgent.md      # Flow design agent
 │   │   ├── frontendUIAgent.md        # Frontend UI specs agent
 │   │   ├── backendAgent.md           # Backend specs agent
 │   │   └── er-diagram-generator.md   # ER diagram generator agent
@@ -42,6 +41,7 @@ Product_lifecycle/
 ├── Transcriptions/                    # Raw transcripts (gitignored, Google Drive symlinks)
 ├── skills/                            # Claude Code skills
 │   ├── prd/                           # PRD generation (interactive, main conversation)
+│   ├── flow-designer/                 # Flow design (interactive, main conversation)
 │   ├── repo-structure/                # File storage conventions & naming protocols
 │   └── skill-creator/                 # Skill creation guide
 ├── .obsidian/                         # Obsidian workspace config
@@ -53,7 +53,7 @@ Product_lifecycle/
 The typical workflow for a new feature follows this pipeline:
 
 1. **PRD** — Use the `prd` skill (interactive Q&A in main conversation)
-2. **Flow Design** — Use `flowDesignerAgent` (subagent, produces flow diagram + docs)
+2. **Flow Design** — Use the `flow-designer` skill (interactive co-design in main conversation)
 3. **UI Specs** — Use `frontendUIAgent` (subagent, produces UI specs + Figma prompt)
 4. **Backend Specs** — Use `backendAgent` (subagent, produces API contracts + schema + logic)
 5. **ER Diagram** — Use `er-diagram-generator` (subagent, optional)

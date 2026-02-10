@@ -11,7 +11,7 @@ Staging area for all agent-generated feature documentation.
 
 - **Folder pattern:** `AI_Output/doc_[Feature_Name]/`
 - **Naming:** PascalCase with underscores: `Diet_Generator`, `Weight_Plateau_Support`
-- **Used by:** prdDiscoveryAgent, flowDesignerAgent, frontendUIAgent, backendAgent
+- **Used by:** prd skill, flow-designer skill, frontendUIAgent, backendAgent
 
 **File naming per feature folder:**
 - `[Feature_Name]_PRD.md` - Product Requirements Document
@@ -46,15 +46,15 @@ All agents generating feature documentation follow this protocol:
 3. **Save Files** - Path pattern: `AI_Output/doc_[Feature_Name]/[Feature_Name]_[FileType].md`
 4. **Confirm** - Inform user where files were saved with relative paths.
 
-## Agent Output Mapping
+## Output Mapping
 
-| Agent | File Names |
-|-------|------------|
-| prdDiscoveryAgent | `[Feature_Name]_PRD.md` |
-| flowDesignerAgent | `[Feature_Name]_Flow_Diagram.md`, `[Feature_Name]_Documentation.md` |
-| frontendUIAgent | `[Feature_Name]_UI_Specifications.md`, `[Feature_Name]_Figma_Make_Prompt.json` |
-| backendAgent | `[Feature_Name]_API_Contracts.md`, `[Feature_Name]_Database_Schema.sql`, `[Feature_Name]_Backend_Logic.md` |
-| er-diagram-generator | Generated from flow specs |
+| Skill / Agent | File Names |
+|---------------|------------|
+| prd (skill) | `[Feature_Name]_PRD.md` |
+| flow-designer (skill) | `[Feature_Name]_Flow_Diagram.md`, `[Feature_Name]_Documentation.md` |
+| frontendUIAgent (agent) | `[Feature_Name]_UI_Specifications.md`, `[Feature_Name]_Figma_Make_Prompt.json` |
+| backendAgent (agent) | `[Feature_Name]_API_Contracts.md`, `[Feature_Name]_Database_Schema.sql`, `[Feature_Name]_Backend_Logic.md` |
+| er-diagram-generator (agent) | Generated from flow specs |
 
 ## Command Output Mapping
 

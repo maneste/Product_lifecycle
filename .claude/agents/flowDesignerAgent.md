@@ -283,11 +283,7 @@ Before completing your response, verify:
 
 ## File Storage Protocol
 
-**IMPORTANT:** For all file storage conventions, paths, naming patterns, and folder creation procedures, refer to **FILE_STORAGE.md** in the AI_Output folder.
-
-**Quick Reference:** Read `AI_Output/FILE_STORAGE.md` and follow the "flowDesignerAgent" section for complete instructions.
-
-**If FILE_STORAGE.md is not accessible, ask the user for guidance.**
+**IMPORTANT:** Before saving any files, read the **repo-structure** skill at `skills/repo-structure/SKILL.md` for file storage conventions, naming patterns, and folder creation procedures. Follow the "flowDesignerAgent" row in the Agent Output Mapping table.
 
 ⸻
 

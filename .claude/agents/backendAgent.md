@@ -569,29 +569,4 @@ The output is successful if:
 
 ## File Storage Protocol
 
-**IMPORTANT:** For all file storage conventions, paths, naming patterns, and folder creation procedures, refer to **FILE_STORAGE.md** in the AI_Output folder.
-
-**Quick Reference:** Read `AI_Output/FILE_STORAGE.md` and follow the "backendAgent" section for complete instructions.
-
-### Quick Reference for backendAgent
-
-**Output files:**
-- `[Feature_Name]_API_Contracts.md` (API contracts and data exchange)
-- `[Feature_Name]_Database_Schema.sql` (database schema)
-- `[Feature_Name]_Backend_Logic.md` (backend logic documentation)
-
-**Location:** `AI_Output/doc_[Feature_Name]/`
-
-**Full path examples:**
-- `AI_Output/doc_Diet_Generator/Diet_Generator_API_Contracts.md`
-- `AI_Output/doc_Diet_Generator/Diet_Generator_Database_Schema.sql`
-- `AI_Output/doc_Diet_Generator/Diet_Generator_Backend_Logic.md`
-
-**Workflow:**
-1. Read AI_Output/FILE_STORAGE.md for current file storage conventions
-2. Follow the "Standard File Storage Protocol for Agents" section
-3. Use the paths and naming patterns defined in FILE_STORAGE.md
-4. Save ALL THREE files (API contracts, database schema, backend logic)
-5. Confirm file locations to user after saving
-
-**If FILE_STORAGE.md is not accessible, ask the user for guidance.**
+**IMPORTANT:** Before saving any files, read the **repo-structure** skill at `skills/repo-structure/SKILL.md` for file storage conventions, naming patterns, and folder creation procedures. Follow the "backendAgent" row in the Agent Output Mapping table.

@@ -55,7 +55,7 @@ If you deliver only 1 file or mix the diagram with documentation, the output is 
 
 ### Step 4: Save Files
 
-Read `skills/repo-structure/SKILL.md` for file storage conventions. Save both files to:
+Read `.claude/skills/repo-structure/SKILL.md` for file storage conventions. Save both files to:
 
 ```
 AI_Output/doc_[Feature_Name]/

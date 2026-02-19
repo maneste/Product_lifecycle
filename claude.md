@@ -20,6 +20,11 @@ Product_lifecycle/
 │   │   ├── backendAgent.md           # Backend specs agent
 │   │   └── er-diagram-generator.md   # ER diagram generator agent
 │   ├── commands/                      # Slash commands (/update-*, /init-context, etc.)
+│   ├── skills/                        # Claude Code skills
+│   │   ├── prd/                       # PRD generation (interactive, main conversation)
+│   │   ├── flow-designer/             # Flow design (interactive, main conversation)
+│   │   ├── repo-structure/            # File storage conventions & naming protocols
+│   │   └── skill-creator/             # Skill creation guide
 │   └── COMMANDS_README.md
 ├── AI_Output/                         # Agent-generated docs (version controlled, staging area)
 │   └── doc_[Feature_Name]/            # Feature documentation folders
@@ -39,11 +44,6 @@ Product_lifecycle/
 ├── feature-template/                  # Code and implementation templates
 ├── features/                          # Finalized docs (gitignored, OneDrive symlink)
 ├── Transcriptions/                    # Raw transcripts (gitignored, Google Drive symlinks)
-├── skills/                            # Claude Code skills
-│   ├── prd/                           # PRD generation (interactive, main conversation)
-│   ├── flow-designer/                 # Flow design (interactive, main conversation)
-│   ├── repo-structure/                # File storage conventions & naming protocols
-│   └── skill-creator/                 # Skill creation guide
 ├── .obsidian/                         # Obsidian workspace config
 └── CLAUDE.md
 ```

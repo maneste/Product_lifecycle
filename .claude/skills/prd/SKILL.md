@@ -78,7 +78,7 @@ Write the PRD using:
 
 ### Step 6: Save the PRD
 
-Read `skills/repo-structure/SKILL.md` for file storage conventions. Save the PRD as:
+Read `.claude/skills/repo-structure/SKILL.md` for file storage conventions. Save the PRD as:
 
 ```
 AI_Output/doc_[Feature_Name]/[Feature_Name]_PRD.md

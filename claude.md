@@ -2,15 +2,13 @@
 
 This is the central configuration file for Claude Code in this repository. All agents and commands reference this file as the single source of truth for paths, conventions, and workflows.
 
-## Repository Overview
+## What Is This
 
-**Repository:** `Product_lifecycle` (`https://github.com/maneste/Product_lifecycle.git`)
-
-This repository manages the full product lifecycle for the Balance app: from user research and discovery, through PRD generation, flow design, UI specs, and backend specs.
+**Product_lifecycle** is a template repository for managing the full product lifecycle: from user research and discovery, through PRD generation, flow design, UI specs, and backend specs. Clone and adapt it for any digital product.
 
 **All paths in this file and in agent/command configs are relative to the repository root.**
 
-## Current Repository Structure
+## Repository Structure
 
 ```
 Product_lifecycle/
@@ -29,13 +27,13 @@ Product_lifecycle/
 ├── AI_Output/                         # Agent-generated docs (version controlled, staging area)
 │   └── doc_[Feature_Name]/            # Feature documentation folders
 ├── context_knowledge/                 # Private knowledge base (gitignored)
-│   ├── Balance_App_Flow.md
-│   ├── Benchmark_Balance.json
-│   ├── Notifications_Touchpoints.json
-│   ├── *_interview_summary.json
+│   ├── Vision_[Product].md
 │   ├── User_persona.md
-│   ├── Vision_Balance.md
-│   └── opportunity_tree.json
+│   ├── [Product]_App_Flow.md
+│   ├── opportunity_tree.json
+│   ├── *_interview_summary.json
+│   ├── Benchmark_[Product].json
+│   └── Notifications_Touchpoints.json
 ├── User_discovery/                    # User interview processing scripts
 │   ├── bin/ (run, process, aggregate)
 │   ├── scripts/ (process_interviews.py, aggregate_results.py)
@@ -44,7 +42,6 @@ Product_lifecycle/
 ├── feature-template/                  # Code and implementation templates
 ├── features/                          # Finalized docs (gitignored, OneDrive symlink)
 ├── Transcriptions/                    # Raw transcripts (gitignored, Google Drive symlinks)
-├── .obsidian/                         # Obsidian workspace config
 └── CLAUDE.md
 ```
 
@@ -64,7 +61,7 @@ All outputs are saved to `AI_Output/doc_[Feature_Name]/`. For file storage conve
 
 ## Context Knowledge Commands
 
-### /init-context - First-Time Setup
+### /init-context — First-Time Setup
 
 Bootstrap a new repo by creating ALL context_knowledge files interactively.
 
@@ -72,27 +69,27 @@ Bootstrap a new repo by creating ALL context_knowledge files interactively.
 
 | # | File | Format | Purpose |
 |---|------|--------|---------|
-| 1 | `Vision_Balance.md` | Markdown | Product vision, mission, positioning |
+| 1 | `Vision_[Product].md` | Markdown | Product vision, mission, positioning |
 | 2 | `User_persona.md` | Markdown | Primary user persona |
-| 3 | `Balance_App_Flow.md` | Markdown + Mermaid | Complete user journey flowchart |
+| 3 | `[Product]_App_Flow.md` | Markdown + Mermaid | Complete user journey flowchart |
 | 4 | `opportunity_tree.json` | JSON | Hierarchical opportunity framework |
 | 5 | `interview_summary.json` | JSON | User evidence mapped to opportunities |
-| 6 | `Benchmark_Balance.json` | JSON | Competitive landscape analysis |
+| 6 | `Benchmark_[Product].json` | JSON | Competitive landscape analysis |
 | 7 | `Notifications_Touchpoints.json` | JSON | Notification/touchpoint strategy |
 
 ### Individual Update Commands
 
 | Command | File Updated | Description |
 |---------|-------------|-------------|
-| `/update-vision` | `Vision_Balance.md` | Update product vision, pillars, positioning |
+| `/update-vision` | `Vision_[Product].md` | Update product vision, pillars, positioning |
 | `/update-persona` | `User_persona.md` | Update user persona demographics, needs, goals |
-| `/update-app-flow` | `Balance_App_Flow.md` | Update user journey Mermaid flowchart |
+| `/update-app-flow` | `[Product]_App_Flow.md` | Update user journey Mermaid flowchart |
 | `/update-opportunity-tree` | `opportunity_tree.json` | Add/modify/remove opportunity nodes |
 | `/update-interview-summary` | `*_interview_summary.json` | Add/update user evidence and quotes |
-| `/update-benchmark` | `Benchmark_Balance.json` | Add/update competitor analysis |
+| `/update-benchmark` | `Benchmark_[Product].json` | Add/update competitor analysis |
 | `/update-notifications` | `Notifications_Touchpoints.json` | Add/update notification touchpoints |
 
 **Cross-file dependencies:**
 - After updating `opportunity_tree.json`, run `/update-interview-summary` to sync entries
 - The interview summary `id` and `title` fields must match the opportunity tree exactly
-- All agents reference these files - changes propagate to future PRDs, flows, and specs
+- All agents reference these files — changes propagate to future PRDs, flows, and specs

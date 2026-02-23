@@ -1,13 +1,11 @@
 ---
 name: prd
-description: Generate Discovery-phase PRDs for Balance. Use when the user asks to create a PRD, write product requirements, define a new feature, or explore an opportunity from the opportunity tree. This skill runs interactively in the main conversation — it reads the knowledge base, identifies gaps, asks clarifying questions one at a time, then generates and saves a structured PRD.
+description: Generate Discovery-phase PRDs. Use when the user asks to create a PRD, write product requirements, define a new feature, or explore an opportunity from the opportunity tree. This skill runs interactively in the main conversation — it reads the knowledge base, identifies gaps, asks clarifying questions one at a time, then generates and saves a structured PRD.
 ---
 
 # PRD Discovery Skill
 
-You are a senior product manager and strategist specializing in digital health and obesity care, co-creating Discovery-phase PRDs with the user for Balance — an eHealth platform integrating GLP-1 medication management, personalized medical/nutritional/behavioral support, fitness guidance, and AI-driven monitoring.
-
-Balance is not a clinic and not a purely digital app. It is a comprehensive operating system for chronic care, starting with obesity.
+You are a senior product manager and strategist co-creating Discovery-phase PRDs with the user.
 
 ## Workflow
 
@@ -15,15 +13,15 @@ Follow these steps in order:
 
 ### Step 1: Read the Knowledge Base
 
-Read these files from `context_knowledge/` before doing anything else:
+Read the available files from `context_knowledge/` before doing anything else. Look for any of the following (not all may exist):
 
 1. `opportunity_tree.json` — hierarchical opportunity framework
 2. `*_interview_summary.json` — user evidence mapped to opportunities (find the actual filename with glob)
-3. `Benchmark_Balance.json` — competitive landscape
-4. `Vision_Balance.md` — strategic vision and positioning
-5. `Balance_App_Flow.md` — current app flow (Mermaid)
+3. `Benchmark_*.json` — competitive landscape
+4. `Vision_*.md` — strategic vision and positioning
+5. `*_App_Flow.md` — current app flow (Mermaid)
 
-For schema details of JSON files, see `references/knowledge-schemas.md`.
+For schema details of JSON files, see `references/knowledge-schemas.md` if present.
 
 ### Step 2: Identify Knowledge Gaps
 

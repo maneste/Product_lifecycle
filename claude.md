@@ -21,6 +21,7 @@ Product_lifecycle/
 │   ├── skills/                        # Claude Code skills
 │   │   ├── prd/                       # PRD generation (interactive, main conversation)
 │   │   ├── flow-designer/             # Flow design (interactive, main conversation)
+│   │   ├── opportunity-tree/          # Opportunity tree (Obsidian Canvas, Teresa Torres methodology)
 │   │   ├── repo-structure/            # File storage conventions & naming protocols
 │   │   └── skill-creator/             # Skill creation guide
 │   └── COMMANDS_README.md
@@ -30,7 +31,8 @@ Product_lifecycle/
 │   ├── Vision_[Product].md
 │   ├── User_persona.md
 │   ├── [Product]_App_Flow.md
-│   ├── opportunity_tree.json
+│   ├── opportunity_tree.canvas
+│   ├── opportunity_tree.md
 │   ├── *_interview_summary.json
 │   ├── Benchmark_[Product].json
 │   └── Notifications_Touchpoints.json
@@ -72,7 +74,7 @@ Bootstrap a new repo by creating ALL context_knowledge files interactively.
 | 1 | `Vision_[Product].md` | Markdown | Product vision, mission, positioning |
 | 2 | `User_persona.md` | Markdown | Primary user persona |
 | 3 | `[Product]_App_Flow.md` | Markdown + Mermaid | Complete user journey flowchart |
-| 4 | `opportunity_tree.json` | JSON | Hierarchical opportunity framework |
+| 4 | `opportunity_tree.canvas` + `opportunity_tree.md` | Obsidian Canvas + Markdown | Hierarchical opportunity framework |
 | 5 | `interview_summary.json` | JSON | User evidence mapped to opportunities |
 | 6 | `Benchmark_[Product].json` | JSON | Competitive landscape analysis |
 | 7 | `Notifications_Touchpoints.json` | JSON | Notification/touchpoint strategy |
@@ -84,12 +86,12 @@ Bootstrap a new repo by creating ALL context_knowledge files interactively.
 | `/update-vision` | `Vision_[Product].md` | Update product vision, pillars, positioning |
 | `/update-persona` | `User_persona.md` | Update user persona demographics, needs, goals |
 | `/update-app-flow` | `[Product]_App_Flow.md` | Update user journey Mermaid flowchart |
-| `/update-opportunity-tree` | `opportunity_tree.json` | Add/modify/remove opportunity nodes |
+| `/update-opportunity-tree` | `opportunity_tree.canvas` + `opportunity_tree.md` | Add/modify/remove opportunity nodes (delegates to `opportunity-tree` skill) |
 | `/update-interview-summary` | `*_interview_summary.json` | Add/update user evidence and quotes |
 | `/update-benchmark` | `Benchmark_[Product].json` | Add/update competitor analysis |
 | `/update-notifications` | `Notifications_Touchpoints.json` | Add/update notification touchpoints |
 
 **Cross-file dependencies:**
-- After updating `opportunity_tree.json`, run `/update-interview-summary` to sync entries
-- The interview summary `id` and `title` fields must match the opportunity tree exactly
+- After updating `opportunity_tree.canvas`, run `/update-interview-summary` to sync entries
+- The interview summary `id` field must match reference numbers extracted from canvas card text (first line, e.g., `"1.1.1  Title"`)
 - All agents reference these files — changes propagate to future PRDs, flows, and specs

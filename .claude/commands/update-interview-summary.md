@@ -20,7 +20,7 @@ ls context_knowledge/*interview_summary*
 
 Read both the interview summary and the opportunity tree:
 - Interview summary: the file found above
-- Opportunity tree: `context_knowledge/opportunity_tree.json`
+- Opportunity tree: `context_knowledge/opportunity_tree.canvas` (Obsidian Canvas JSON with `nodes[]` and `edges[]`)
 
 Present a summary:
 - Metadata (version, source, counts)
@@ -92,28 +92,27 @@ After saving, validate:
 
 ```bash
 python3 -c "
-import json, os
+import json, os, re
+
 # Find summary file
 files = [f for f in os.listdir('context_knowledge/') if 'interview_summary' in f]
 summary = json.load(open(f'context_knowledge/{files[0]}'))
-tree = json.load(open('context_knowledge/opportunity_tree.json'))
+
+# Read canvas and extract reference numbers from node text (first line before newline)
+canvas = json.load(open('context_knowledge/opportunity_tree.canvas'))
+ref_pattern = re.compile(r'^(\d+(?:\.\d+)*)\s{2}')
+tree_ids = set()
+for node in canvas.get('nodes', []):
+    text = node.get('text', '')
+    m = ref_pattern.match(text)
+    if m:
+        tree_ids.add(m.group(1))
 
 # Validate structure
 assert 'metadata' in summary, 'Missing metadata'
 assert 'opportunities' in summary, 'Missing opportunities'
 
-# Check sync with tree
-def get_ids(nodes):
-    ids = set()
-    for n in nodes:
-        ids.add(n['id'])
-        if 'children' in n:
-            ids.update(get_ids(n['children']))
-    return ids
-
-tree_ids = get_ids(tree['opportunity_tree']['opportunities'])
 summary_ids = set(o['id'] for o in summary['opportunities'])
-
 with_evidence = sum(1 for o in summary['opportunities'] if o['interview_count'] > 0)
 total_evidence = sum(len(o['evidence']) for o in summary['opportunities'])
 
@@ -121,10 +120,10 @@ print(f'Valid JSON.')
 print(f'Total opportunities: {len(summary[\"opportunities\"])}')
 print(f'With evidence: {with_evidence}')
 print(f'Total evidence entries: {total_evidence}')
-print(f'Synced with tree: {tree_ids == summary_ids}')
+print(f'Synced with canvas tree: {tree_ids == summary_ids}')
 if tree_ids != summary_ids:
-    print(f'  Missing: {tree_ids - summary_ids}')
-    print(f'  Extra: {summary_ids - tree_ids}')
+    print(f'  Missing from summary: {tree_ids - summary_ids}')
+    print(f'  Extra in summary: {summary_ids - tree_ids}')
 "
 ```
 
@@ -165,5 +164,5 @@ Show the validation results to the user.
 - Quotes should be in the interviewee's original language
 - Wrap quotes in single quotes inside the JSON string
 - Keep `interview_names` as an array of unique names
-- The `id` and `title` fields must match `opportunity_tree.json` exactly
+- The `id` field must match reference numbers extracted from `opportunity_tree.canvas` node text (first line before `\n\n`)
 - When adding evidence, always check if the interview name already exists in `interview_names`

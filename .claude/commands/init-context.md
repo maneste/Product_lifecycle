@@ -19,7 +19,7 @@ The following files must be created in `context_knowledge/`:
 | 1 | `Vision_Balance.md` | Markdown | Product vision, mission, and strategic positioning |
 | 2 | `User_persona.md` | Markdown | Primary user persona with demographics, motivations, frustrations |
 | 3 | `Balance_App_Flow.md` | Markdown + Mermaid | Complete user journey flowchart |
-| 4 | `opportunity_tree.json` | JSON | Hierarchical opportunity framework from user research |
+| 4 | `opportunity_tree.canvas` + `opportunity_tree.md` | Obsidian Canvas + Markdown | Hierarchical opportunity framework from user research |
 | 5 | `interview_summary.json` | JSON | User interview evidence mapped to opportunities |
 | 6 | `Benchmark_Balance.json` | JSON | Competitive landscape analysis |
 | 7 | `Notifications_Touchpoints.json` | JSON | Notification and touchpoint strategy |
@@ -210,71 +210,58 @@ flowchart TD
 
 ---
 
-### Step 4: Opportunity Tree (`opportunity_tree.json`)
+### Step 4: Opportunity Tree (`opportunity_tree.canvas` + `opportunity_tree.md`)
 
-This is the most critical file. It structures all user needs into a hierarchy.
+This is the most critical file. It structures all user needs into a hierarchy using Obsidian Canvas format.
 
-Ask the user: "What are the main areas of opportunity or need for your users? These are the big themes from your research."
+Ask the user: "What is your north star — the key outcome your product creates for the business? Then, what are the main areas of opportunity or need for your users?"
 
-Then for each theme, drill down:
-1. "Under [theme], what questions do users have?" (Level 2)
-2. "For each question, what specific problems do they face?" (Level 3)
-
-**Template structure to generate:**
+**Create the canvas file** with a minimal scaffold and one Desired Outcome root node:
 
 ```json
 {
-  "opportunity_tree": {
-    "opportunities": [
-      {
-        "id": "1",
-        "title": "[Top-level opportunity theme]",
-        "explanation": "[Why this matters to users - 2-3 sentences]",
-        "children": [
-          {
-            "id": "1.1",
-            "title": "[User question or sub-theme]",
-            "explanation": "[Specific user need - 2-3 sentences]",
-            "children": [
-              {
-                "id": "1.1.1",
-                "title": "[Specific problem or pain point]",
-                "explanation": "[Detailed description of the problem - 2-3 sentences]"
-              },
-              {
-                "id": "1.1.2",
-                "title": "[Another specific problem]",
-                "explanation": "[Detailed description]"
-              }
-            ]
-          },
-          {
-            "id": "1.2",
-            "title": "[Another sub-theme]",
-            "explanation": "[Description]",
-            "children": [...]
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "title": "[Second top-level theme]",
-        "explanation": "[Description]",
-        "children": [...]
-      }
-    ]
-  }
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "text",
+      "text": "Desired Outcome\n\n[Describe the north star metric — what success looks like for the business]",
+      "x": 0,
+      "y": -175,
+      "width": 450,
+      "height": 100,
+      "color": "6"
+    }
+  ],
+  "edges": []
 }
 ```
 
-**ID hierarchy rules:**
-- Level 1: `"1"`, `"2"`, `"3"`, etc.
-- Level 2: `"1.1"`, `"1.2"`, `"2.1"`, etc.
-- Level 3: `"1.1.1"`, `"1.1.2"`, `"2.1.1"`, etc.
-- Each node MUST have: `id`, `title`, `explanation`
-- `children` array is optional (leaf nodes don't need it)
+**Save to:** `context_knowledge/opportunity_tree.canvas`
 
-**Save to:** `context_knowledge/opportunity_tree.json`
+Then use the `opportunity-tree` skill to collaboratively build out the full tree by adding opportunity areas and sub-opportunities. The skill handles all node IDs, colors, y-level alignment, and canvas conventions.
+
+**Also create the markdown sync file:**
+
+```markdown
+# Opportunity Tree
+
+*Auto-synced from `opportunity_tree.canvas`. Edit the canvas, not this file.*
+
+## [Desired Outcome]
+
+[Description]
+
+---
+
+*(Add opportunity areas here as the canvas is built out)*
+```
+
+**Save to:** `context_knowledge/opportunity_tree.md`
+
+**Reference number convention (used by interview summary and PRD):**
+- Opportunity areas: `1.1`, `1.2`, `2.1`, …
+- Specific opportunities: `1.1.1`, `1.1.2`, `2.1.1`, …
+- Each canvas card starts with its reference number followed by two spaces: `"1.1.1  Title\n\n..."`
 
 ---
 
@@ -444,35 +431,32 @@ After creating all files, validate:
 ls -la context_knowledge/
 ```
 
-2. **Validate JSON files are valid:**
+2. **Validate JSON/canvas files are valid:**
 ```bash
-python3 -c "import json; json.load(open('context_knowledge/opportunity_tree.json'))" && echo "opportunity_tree.json: Valid"
+python3 -c "import json; json.load(open('context_knowledge/opportunity_tree.canvas'))" && echo "opportunity_tree.canvas: Valid"
 python3 -c "import json; json.load(open('context_knowledge/Benchmark_Balance.json'))" && echo "Benchmark_Balance.json: Valid"
 python3 -c "import json; json.load(open('context_knowledge/Notifications_Touchpoints.json'))" && echo "Notifications_Touchpoints.json: Valid"
 ```
 
-3. **Validate interview_summary matches opportunity_tree:**
+3. **Validate interview_summary matches opportunity_tree canvas:**
 ```bash
 python3 -c "
-import json
-tree = json.load(open('context_knowledge/opportunity_tree.json'))
-summary_file = [f for f in __import__('os').listdir('context_knowledge/') if 'interview_summary' in f][0]
+import json, os, re
+canvas = json.load(open('context_knowledge/opportunity_tree.canvas'))
+summary_file = [f for f in os.listdir('context_knowledge/') if 'interview_summary' in f][0]
 summary = json.load(open(f'context_knowledge/{summary_file}'))
 
-# Extract all IDs from tree
-def get_ids(nodes):
-    ids = set()
-    for n in nodes:
-        ids.add(n['id'])
-        if 'children' in n:
-            ids.update(get_ids(n['children']))
-    return ids
+ref_pattern = re.compile(r'^(\d+(?:\.\d+)+)\s{2}')
+tree_ids = set()
+for node in canvas.get('nodes', []):
+    m = ref_pattern.match(node.get('text', ''))
+    if m:
+        tree_ids.add(m.group(1))
 
-tree_ids = get_ids(tree['opportunity_tree']['opportunities'])
 summary_ids = set(o['id'] for o in summary['opportunities'])
 missing = tree_ids - summary_ids
 extra = summary_ids - tree_ids
-print(f'Tree IDs: {len(tree_ids)}, Summary IDs: {len(summary_ids)}')
+print(f'Canvas IDs: {len(tree_ids)}, Summary IDs: {len(summary_ids)}')
 if missing: print(f'Missing from summary: {missing}')
 if extra: print(f'Extra in summary: {extra}')
 if not missing and not extra: print('All IDs match!')

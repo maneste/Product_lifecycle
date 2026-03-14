@@ -1,0 +1,58 @@
+# ─── Product_lifecycle Copier Template ────────────────────────────────────────
+# Usage:
+#   Create new project:  copier copy github.com/manu/Product_lifecycle <dest>
+#   Sync updates:        copier update   (run from inside derived project)
+# ──────────────────────────────────────────────────────────────────────────────
+
+_min_copier_version: "9"
+
+# ─── Questions ────────────────────────────────────────────────────────────────
+questions:
+  product_name:
+    type: str
+    help: "Product name (e.g., Balance, RaudaAI, WellNest)"
+
+  product_slug:
+    type: str
+    help: "Slug for file names — lowercase, underscores (e.g., balance, rauda_ai)"
+    default: "{{ product_name | lower | replace(' ', '_') }}"
+
+# ─── Files to exclude from copy ───────────────────────────────────────────────
+# These files belong to the template repo itself, not to derived projects.
+_exclude:
+  - copier.yml
+  - CHANGELOG.md
+  - README.md
+  - Development_and_Deployment_Guide.md
+  - .git
+  - .gitignore
+  - .DS_Store
+  - __pycache__
+  - "*.pyc"
+  # Release skill is only useful inside Product_lifecycle itself
+  - ".claude/skills/release/"
+
+# ─── Files to create once and never overwrite on update ───────────────────────
+# These are project-specific and should not be touched by template updates.
+_skip_if_exists:
+  - "AI_Output/"
+  - "User_discovery/"
+  - "feature-template/"
+
+# ─── Post-copy/update tasks ───────────────────────────────────────────────────
+_tasks:
+  # Replace [Product] and [product_slug] placeholders in claude.md
+  - >-
+    python3 -c "
+    content = open('claude.md').read();
+    content = content.replace('[Product]', '{{ product_name }}');
+    content = content.replace('[product_slug]', '{{ product_slug }}');
+    open('claude.md', 'w').write(content)
+    "
+  - "echo ''"
+  - "echo '✅  Project created from Product_lifecycle template'"
+  - "echo '    Product : {{ product_name }}'"
+  - "echo '    Slug    : {{ product_slug }}'"
+  - "echo '    Answers saved in .copier-answers.yml — commit this file.'"
+  - "echo '    To sync future template updates: copier update'"
+  - "echo ''"

@@ -2,6 +2,63 @@
 
 ## Available Commands
 
+## Template lifecycle commands
+
+| Situación | Comando |
+|---|---|
+| Proyecto nuevo, primer día | `/init-project` |
+| Ver si el proyecto está desactualizado | `/template-status` |
+| Traer mejoras del template | `/productlifecycle-update` |
+| Mandar una skill/mejora al template | `/contribute-productlifecycle` |
+| Lanzar nueva versión del template | `/release` (solo en Product_lifecycle) |
+
+---
+
+### `/init-project` — Inicializar proyecto nuevo
+
+Run once after creating a project from the Product_lifecycle GitHub template.
+
+- Asks for product name and slug
+- Replaces `[Product]` placeholders in `claude.md`
+- Creates `.copier-answers.yml` so future syncs work
+- Commits both files
+
+**Usage:** Run immediately after cloning, before anything else.
+
+---
+
+### `/template-status` — Ver estado vs. template
+
+Shows how far behind this project is from the latest Product_lifecycle version.
+
+- Displays current version vs. latest
+- Shows CHANGELOG entries for what's missing
+- Lists local `.claude/` changes not yet contributed
+
+---
+
+### `/productlifecycle-update` — Traer mejoras del template
+
+Syncs the latest skills, agents, and commands from Product_lifecycle into this project.
+
+- Checks current vs. latest version
+- Shows CHANGELOG of what's coming
+- Runs `copier update`
+- Helps resolve conflicts if any
+
+---
+
+### `/contribute-productlifecycle` — Mandar mejoras al template
+
+Contributes a new or improved skill/agent/command back to Product_lifecycle.
+
+- Detects new and modified files in `.claude/`
+- Generalizes project-specific strings (`RaudaAI` → `[Product]`)
+- Prepares files ready to copy into Product_lifecycle
+- Can copy directly if Product_lifecycle is available locally
+
+---
+
 ### `/transcripts` - Run Transcription Pipelines
 
 **Description:** Run first consultation or user research transcription pipelines

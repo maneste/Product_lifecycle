@@ -23,7 +23,8 @@ Product_lifecycle/
 │   │   ├── flow-designer/             # Flow design (interactive, main conversation)
 │   │   ├── opportunity-tree/          # Opportunity tree (Obsidian Canvas, Teresa Torres methodology)
 │   │   ├── repo-structure/            # File storage conventions & naming protocols
-│   │   └── skill-creator/             # Skill creation guide
+│   │   ├── skill-creator/             # Skill creation guide
+│   │   └── release/                   # Template release workflow (Product_lifecycle only)
 │   └── COMMANDS_README.md
 ├── AI_Output/                         # Agent-generated docs (version controlled, staging area)
 │   └── doc_[Feature_Name]/            # Feature documentation folders
@@ -95,3 +96,43 @@ Bootstrap a new repo by creating ALL context_knowledge files interactively.
 - After updating `opportunity_tree.canvas`, run `/update-interview-summary` to sync entries
 - The interview summary `id` field must match reference numbers extracted from canvas card text (first line, e.g., `"1.1.1  Title"`)
 - All agents reference these files — changes propagate to future PRDs, flows, and specs
+
+---
+
+## Template Management (Copier)
+
+This repo is a **Copier template**. New projects are created via **GitHub's "Use this template"** button, then initialised with:
+
+```
+/init-project   ← run once, immediately after cloning the new project
+```
+
+This command sets up Copier tracking (`.copier-answers.yml`) so future template improvements can be synced with:
+
+```bash
+copier update   # run from inside the derived project
+```
+
+### Releasing a new template version
+
+Use the `/release` skill. It guides through:
+1. Showing commits since last tag
+2. Determining version bump (patch / minor / major)
+3. Writing the `CHANGELOG.md` entry
+4. Creating the git tag and pushing
+
+**Version semantics:**
+- `patch` — fixes, wording improvements, small tweaks
+- `minor` — new skills, agents, or commands (backwards compatible)
+- `major` — breaking changes (renamed files, changed copier.yml variables)
+
+### What gets copied to derived projects
+
+Everything except: `copier.yml`, `CHANGELOG.md`, `README.md`, `Development_and_Deployment_Guide.md`, and `.claude/skills/release/` (the release skill is only useful here).
+
+### Project-specific customisations in derived projects
+
+When a derived project adds something useful (e.g., a new generic skill), the workflow to port it back is:
+1. Add a generic version to Product_lifecycle
+2. Run `/release` to tag a new version
+3. In the derived project: `copier update` — if the project had its own version, resolve the conflict keeping both

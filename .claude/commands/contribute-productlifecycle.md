@@ -4,7 +4,7 @@ description: Contribute a new or improved skill, agent, or command from this pro
 
 # Contribute to Product Lifecycle
 
-Contributes improvements from this project's `.claude/` directly to Product_lifecycle — including the release. You don't need to open Product_lifecycle at all.
+Contributes improvements from this project's `.claude/` directly to the local Product_lifecycle — including the release. You don't need to open Product_lifecycle at all.
 
 ---
 
@@ -17,53 +17,43 @@ ls copier.yml 2>/dev/null && echo "ERROR: you are inside Product_lifecycle — u
 # Must have Copier tracking
 ls .copier-answers.yml 2>/dev/null || echo "ERROR: run /init-project first"
 
+# Product_lifecycle must exist locally
+ls ../Product_lifecycle/copier.yml 2>/dev/null || echo "ERROR: Product_lifecycle not found at ../Product_lifecycle"
+
 # Working tree must be clean
 git status --short
 ```
 
-Read `.copier-answers.yml` to extract `product_name`, `product_slug`, `_src_path`.
-
-Find Product_lifecycle locally:
-
-```bash
-# Try common sibling path first
-ls ../Product_lifecycle/copier.yml 2>/dev/null && echo "Found at ../Product_lifecycle" || echo "Not found at default path"
-```
-
-If not found at `../Product_lifecycle`, ask the user for the local path.
+If `../Product_lifecycle` is not found, ask the user for the correct local path.
+Read `.copier-answers.yml` to extract `product_name` and `product_slug`.
 
 ---
 
 ## Step 2 — Detect what has changed in .claude/
 
-Compare current `.claude/` against the template version stored in `_commit`:
+Compare directly against `../Product_lifecycle/.claude/`:
 
 ```bash
-TEMPLATE_DIR=$(mktemp -d)
-git clone --quiet --branch $(grep '_commit:' .copier-answers.yml | awk '{print $2}') \
-  $(grep '_src_path:' .copier-answers.yml | awk '{print $2}') $TEMPLATE_DIR 2>/dev/null || \
-git clone --quiet $(grep '_src_path:' .copier-answers.yml | awk '{print $2}') $TEMPLATE_DIR
-
-# New files
+# New files (in this project but not in template)
+echo "=== NEW FILES ==="
 find .claude -type f | while read f; do
-  [ ! -f "$TEMPLATE_DIR/$f" ] && echo "NEW: $f"
+  [ ! -f "../Product_lifecycle/$f" ] && echo "  + $f"
 done
 
-# Modified files
+# Modified files (exist in both but differ)
+echo "=== MODIFIED FILES ==="
 find .claude -type f | while read f; do
-  [ -f "$TEMPLATE_DIR/$f" ] && ! diff -q "$f" "$TEMPLATE_DIR/$f" > /dev/null 2>&1 && echo "MODIFIED: $f"
+  [ -f "../Product_lifecycle/$f" ] && ! diff -q "$f" "../Product_lifecycle/$f" > /dev/null 2>&1 && echo "  ~ $f"
 done
-
-rm -rf $TEMPLATE_DIR
 ```
 
-If nothing changed: "No changes detected in `.claude/` since the last template sync. Nothing to contribute."
+If both lists are empty: "No changes detected in `.claude/`. Nothing to contribute."
 
 ---
 
 ## Step 3 — Select what to contribute
 
-Present the two lists (new files, modified files) and ask the user which ones to contribute.
+Present the two lists and ask which files to contribute.
 
 For each selected file, confirm: "Is `[filename]` a generic improvement useful for any project, or specific to [product_name]?"
 
@@ -73,7 +63,7 @@ Only proceed with files confirmed as generic or generalizable.
 
 ## Step 4 — Generalize content
 
-For each selected file, replace project-specific strings using values from `.copier-answers.yml`:
+For each selected file, replace project-specific strings:
 
 - `product_name` value → `[Product]`
 - `product_slug` value → `[product_slug]`
@@ -84,17 +74,11 @@ Show the before/after diff and ask: "Anything else to replace before contributin
 
 ## Step 5 — Write files to Product_lifecycle
 
-Write each generalized file directly to the Product_lifecycle repo using the Write tool.
-
-```
-[product_lifecycle_path]/.claude/skills/my-skill/SKILL.md
-[product_lifecycle_path]/.claude/commands/my-command.md
-etc.
-```
+Write each generalized file directly to `../Product_lifecycle/` using the Write tool.
 
 Confirm what was written:
 ```
-Written to Product_lifecycle:
+Written to ../Product_lifecycle:
   + .claude/skills/my-new-skill/SKILL.md   (new)
   ~ .claude/skills/prd/SKILL.md            (updated)
 ```
@@ -109,19 +93,17 @@ Ask the user:
 > - **minor** — new skills, agents, or commands
 > - **major** — breaking changes (renamed files, restructured directories)"
 
-Calculate the next version from the latest tag in Product_lifecycle:
+Calculate next version:
 
 ```bash
-git -C [product_lifecycle_path] describe --tags --abbrev=0 2>/dev/null || echo "none"
+git -C ../Product_lifecycle describe --tags --abbrev=0 2>/dev/null || echo "none"
 ```
 
 ---
 
 ## Step 7 — Write CHANGELOG entry in Product_lifecycle
 
-Read `[product_lifecycle_path]/CHANGELOG.md`.
-
-Write a new entry below `## [Unreleased]`:
+Read `../Product_lifecycle/CHANGELOG.md` and write a new entry below `## [Unreleased]`:
 
 ```markdown
 ## [vX.Y.Z] — YYYY-MM-DD
@@ -130,19 +112,17 @@ Write a new entry below `## [Unreleased]`:
 - `skill-name`: [what changed and why, in generic terms]
 ```
 
-Use the Write tool to update the file.
+Use the Write tool to update `../Product_lifecycle/CHANGELOG.md`.
 
 ---
 
 ## Step 8 — Commit, tag, and push Product_lifecycle
 
 ```bash
-cd [product_lifecycle_path]
-
-git add .
-git commit -m "chore: release vX.Y.Z"
-git tag -a vX.Y.Z -m "vX.Y.Z"
-git push origin main --tags
+git -C ../Product_lifecycle add .
+git -C ../Product_lifecycle commit -m "chore: release vX.Y.Z"
+git -C ../Product_lifecycle tag -a vX.Y.Z -m "vX.Y.Z"
+git -C ../Product_lifecycle push origin main --tags
 ```
 
 Show the commands and ask for confirmation before running.
@@ -151,15 +131,8 @@ Show the commands and ask for confirmation before running.
 
 ## Step 9 — Update .copier-answers.yml in this project
 
-Update `_commit` to the new version:
-
 ```bash
 sed -i '' 's/_commit: .*/_commit: vX.Y.Z/' .copier-answers.yml
-```
-
-Commit:
-
-```bash
 git add .copier-answers.yml
 git commit -m "chore: update template tracking to vX.Y.Z"
 ```

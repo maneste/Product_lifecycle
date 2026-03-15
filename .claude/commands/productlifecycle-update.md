@@ -1,10 +1,10 @@
 ---
-description: Sync the latest improvements from Product_lifecycle template into this project. Runs copier update, explains what changed, and helps resolve conflicts.
+description: Sync the latest improvements from Product_lifecycle template into this project. Explains what changed and helps resolve conflicts.
 ---
 
 # Product Lifecycle Update
 
-Brings the latest skills, agents, and commands from the Product_lifecycle template into this project.
+Brings the latest skills, agents, and commands from the local Product_lifecycle template into this project.
 
 ---
 
@@ -14,34 +14,34 @@ Brings the latest skills, agents, and commands from the Product_lifecycle templa
 # Must have Copier tracking set up
 ls .copier-answers.yml 2>/dev/null || echo "ERROR: .copier-answers.yml not found — run /init-project first"
 
+# Product_lifecycle must exist at sibling path
+ls ../Product_lifecycle/copier.yml 2>/dev/null || echo "ERROR: Product_lifecycle not found at ../Product_lifecycle"
+
 # Working tree must be clean
 git status --short
 ```
 
-If `.copier-answers.yml` is missing, stop: "Run `/init-project` first to set up template tracking."
+If `.copier-answers.yml` is missing, stop: "Run `/init-project` first."
+If `../Product_lifecycle` is not found, ask the user for the correct local path.
 If there are uncommitted changes, stop: "Commit or stash your changes before updating."
 
 ---
 
 ## Step 2 — Show what's changed in the template
 
-Read `.copier-answers.yml` to get the current version (`_commit`) and template URL (`_src_path`).
-
 ```bash
-# Get latest version from template
-LATEST=$(git ls-remote --tags https://github.com/manu/Product_lifecycle | grep -v '{}' | awk '{print $2}' | sed 's|refs/tags/||' | sort -V | tail -1)
 CURRENT=$(grep '_commit:' .copier-answers.yml | awk '{print $2}')
+LATEST=$(git -C ../Product_lifecycle describe --tags --abbrev=0 2>/dev/null || echo "none")
 echo "Your version : $CURRENT"
 echo "Latest       : $LATEST"
 ```
 
-If already on latest version, tell the user and stop: "You're already on the latest template version ($LATEST). Nothing to update."
+If `$CURRENT == $LATEST`, tell the user and stop: "You're already on the latest template version ($LATEST). Nothing to update."
 
-Fetch and display the relevant CHANGELOG sections between `$CURRENT` and `$LATEST`:
+Show what changed by reading the local CHANGELOG:
 
 ```bash
-curl -s https://raw.githubusercontent.com/manu/Product_lifecycle/main/CHANGELOG.md | \
-  awk "/## \[$LATEST\]/,/## \[$CURRENT\]/" | head -60
+awk "/## \[$LATEST\]/,/## \[$CURRENT\]/" ../Product_lifecycle/CHANGELOG.md | grep -v "## \[$CURRENT\]"
 ```
 
 Ask the user: "These changes will be merged into your project. Continue?"
@@ -51,37 +51,38 @@ Ask the user: "These changes will be merged into your project. Continue?"
 ## Step 3 — Run copier update
 
 ```bash
-copier update --trust
+copier update --trust --defaults
 ```
 
 If `copier` is not installed:
 ```bash
-pip install copier
-copier update --trust
+pip install copier && copier update --trust --defaults
 ```
+
+Copier reads `_src_path` from `.copier-answers.yml` — since it points to `../Product_lifecycle`, it works entirely locally with no network needed.
 
 ---
 
 ## Step 4 — Handle conflicts
 
-If the update produces conflict markers, scan for them:
+Scan for conflict markers:
 
 ```bash
 grep -rl "<<<<<<" .claude/ claude.md 2>/dev/null
 ```
 
-For each file with conflicts, explain what happened:
-- Lines between `<<<<<<< UPDATED` and `=======` are the **new template version**
-- Lines between `=======` and `>>>>>>> CURRENT` are **your version**
+For each file with conflicts:
+- Lines between `<<<<<<< UPDATED` and `=======` → new template version
+- Lines between `=======` and `>>>>>>> CURRENT` → your version
 
 Guide the user through each conflict:
-> "In `[filename]`, the template changed [section]. Your version has [description]. Which do you want to keep — the template version, yours, or a combination?"
+> "In `[filename]`, the template changed [section]. Your version has [description]. Which do you want to keep?"
 
-After resolving all conflicts:
+After resolving:
 
 ```bash
 git add .
-git commit -m "chore: sync template [LATEST version]"
+git commit -m "chore: sync template $LATEST"
 ```
 
 ---
@@ -90,6 +91,6 @@ git commit -m "chore: sync template [LATEST version]"
 
 Tell the user:
 - Updated from `$CURRENT` → `$LATEST`
-- List of files that changed (clean merges)
-- List of files that had conflicts and how they were resolved
-- If this was a major version bump, warn: "Check that your project-specific skills still work as expected."
+- Files that changed cleanly
+- Files that had conflicts and how they were resolved
+- If major version bump: "Check that your project-specific skills still work as expected."

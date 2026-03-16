@@ -111,7 +111,7 @@ El ítem 1 es el desbloqueante: si el PM sabe qué no sabe, todo lo demás mejor
 | # | Mejora | Estado |
 |---|--------|--------|
 | 1 | Gap Analysis pre-research | Completado |
-| 2 | Generación dinámica de guión | Pendiente |
+| 2 | Generación dinámica de guión | Completado |
 | 3 | Modos Discover / Validate | Pendiente |
 | 4 | Filtro de datos malos | Pendiente |
 | 5 | JTBD como output estructurado | Pendiente |

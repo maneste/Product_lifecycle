@@ -12,6 +12,14 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.1.0] — 2026-03-16
+
+### Added
+- `gap-analysis` skill — analyzes PRDs to identify and score knowledge gaps before committing to design or development. Implements 14-gap taxonomy (Assumption Mapping, Four Big Risks, Research Mom Test), UK GDS severity scoring (`Risk = Impact × (10 - Confidence)`), unknown-unknown techniques (pre-mortem, Roger Martin's "What would have to be true?", assumption inversion, reverse Five Whys), and recommends Discover vs. Validate research mode per gap profile
+- `RESEARCH_ROADMAP.md` — tracks 5 planned improvements to the research module inspired by the Mercadona AI User Story Framework (gap analysis, dynamic interview scripts, Discover/Validate modes, bad-data filtering, JTBD structured output)
+
+---
+
 ## [v1.0.0] — 2026-03-14
 
 First stable release. Establishes the full product lifecycle template with Copier support.

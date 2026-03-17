@@ -12,6 +12,13 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.2.0] — 2026-03-16
+
+### Added
+- `interview-script` skill — generates Mom Test–compliant 5-phase interview guides (warm-up, user life, current behavior, deep dive, close) from a PRD. Always starts by asking what the PM has — no path assumptions. Determines Discover vs. Validate mode from gap analysis score or PRD evidence, adapts questions to specific feature gaps, and includes an anti-bias checklist for the interviewer
+
+---
+
 ## [v1.1.0] — 2026-03-16
 
 ### Added

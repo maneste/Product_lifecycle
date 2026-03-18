@@ -12,6 +12,15 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.3.0] — 2026-03-18
+
+### Added
+- `docs/` and `hq/` folder structure scaffolded in all derived projects — `docs/product/` (prd-drafts, User Discovery), `docs/architecture/`, `docs/design/`, `docs/deployment/`, `hq/research/`, `hq/ideas/`, `hq/personas/`, `hq/decisions/`, `hq/brand/`
+- Both folders added to `_skip_if_exists` so `copier update` never overwrites project content
+- `claude.md` updated to document the new structure
+
+---
+
 ## [v1.2.1] — 2026-03-18
 
 ### Fixed

@@ -7,15 +7,14 @@
 _min_copier_version: "9"
 
 # ─── Questions ────────────────────────────────────────────────────────────────
-questions:
-  product_name:
-    type: str
-    help: "Product name (e.g., Balance, RaudaAI, WellNest)"
+product_name:
+  type: str
+  help: "Product name (e.g., Balance, RaudaAI, WellNest)"
 
-  product_slug:
-    type: str
-    help: "Slug for file names — lowercase, underscores (e.g., balance, rauda_ai)"
-    default: "{{ product_name | lower | replace(' ', '_') }}"
+product_slug:
+  type: str
+  help: "Slug for file names — lowercase, underscores (e.g., balance, rauda_ai)"
+  default: "{{ product_name | lower | replace(' ', '_') }}"
 
 # ─── Files to exclude from copy ───────────────────────────────────────────────
 # These files belong to the template repo itself, not to derived projects.

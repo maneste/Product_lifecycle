@@ -37,6 +37,8 @@ _skip_if_exists:
   - "AI_Output/"
   - "User_discovery/"
   - "feature-template/"
+  - "hq/"
+  - "docs/"
 
 # ─── Post-copy/update tasks ───────────────────────────────────────────────────
 _tasks:

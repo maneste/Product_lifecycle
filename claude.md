@@ -26,6 +26,19 @@ Product_lifecycle/
 │   │   ├── skill-creator/             # Skill creation guide
 │   │   └── release/                   # Template release workflow (Product_lifecycle only)
 │   └── COMMANDS_README.md
+├── docs/                              # Technical documentation
+│   ├── product/                       # Roadmap, PRDs, PRD drafts, opportunity tree
+│   │   ├── prd-drafts/                # Lightweight drafts maturing toward full PRDs
+│   │   └── User Discovery/            # Discovery research and opportunity tree files
+│   ├── architecture/                  # Tech stack, DB schema, system design
+│   ├── design/                        # UI design system, colors, assets
+│   └── deployment/                    # Local setup, env vars, CI/CD
+├── hq/                                # Product and business context
+│   ├── research/                      # Market analysis, competitive analysis
+│   ├── ideas/                         # Ideas inbox (raw brainstorms)
+│   ├── personas/                      # User personas
+│   ├── decisions/                     # Product and design decisions
+│   └── brand/                         # Brand assets
 ├── AI_Output/                         # Agent-generated docs (version controlled, staging area)
 │   └── doc_[Feature_Name]/            # Feature documentation folders
 ├── context_knowledge/                 # Private knowledge base (gitignored)

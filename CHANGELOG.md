@@ -12,6 +12,13 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.2.1] — 2026-03-18
+
+### Fixed
+- `copier update` now works correctly — replaced nested `questions:` block with flat top-level format in `copier.yml`. The nested format caused copier's internal update worker to treat `questions` as a required user variable, breaking all derived project updates.
+
+---
+
 ## [v1.2.0] — 2026-03-16
 
 ### Added

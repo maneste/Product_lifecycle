@@ -30,6 +30,8 @@ _exclude:
   - "*.pyc"
   # Release skill is only useful inside Product_lifecycle itself
   - ".claude/skills/release/"
+  # Internal planning docs — not for derived projects
+  - "RESEARCH_ROADMAP.md"
 
 # ─── Files to create once and never overwrite on update ───────────────────────
 # These are project-specific and should not be touched by template updates.

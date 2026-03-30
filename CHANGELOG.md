@@ -12,6 +12,30 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.4.0] — 2026-03-30
+
+### Added
+- `frontend-ui` skill — generates UI specifications from flow canvases and PRDs; detects platform from `docs/architecture/` and applies the correct template (React Native, web app, PWA)
+- `backend-spec` skill — generates API contracts, DB schema, and backend logic; detects stack from `docs/architecture/` and applies the correct template (REST+PostgreSQL, Supabase, Firebase)
+- `screen-map` skill — derives an Obsidian canvas screen architecture map from a flow canvas; groups screens by section, shows navigation edges
+- `frontend-ui/templates/` — React Native, web app, and PWA output templates
+- `backend-spec/templates/` — REST+PostgreSQL, Supabase, and Firebase output templates
+- `flow-designer/references/canvas-spec.md` — Obsidian canvas JSON format, layout rules, and documentation template
+- `flow-designer/references/node-conventions.md` — SCN_, ACT_, DEC_, SYS_ node types with color coding
+
+### Changed
+- `flow-designer` skill — outputs Obsidian `.canvas` file instead of Mermaid; product-agnostic (removed Balance/health-specific references); reads context from `docs/` and `hq/`; added iteration protocol for human feedback loop
+- `repo-structure` skill — updated paths and output mapping table to reflect new skill structure and `docs/product/` destination
+- `CLAUDE.md` — updated feature lifecycle table, context references, and repository structure diagram
+
+### Removed
+- `frontendUIAgent` agent — replaced by `frontend-ui` skill
+- `backendAgent` agent — replaced by `backend-spec` skill
+- `er-diagram-generator` agent — replaced by `screen-map` skill
+- `flow-designer/references/output-specs.md` — replaced by `canvas-spec.md` and `node-conventions.md`
+
+---
+
 ## [v1.3.0] — 2026-03-18
 
 ### Added

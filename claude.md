@@ -13,35 +13,32 @@ This is the central configuration file for Claude Code in this repository. All a
 ```
 Product_lifecycle/
 ├── .claude/
-│   ├── agents/
-│   │   ├── frontendUIAgent.md        # Frontend UI specs agent
-│   │   ├── backendAgent.md           # Backend specs agent
-│   │   └── er-diagram-generator.md   # ER diagram generator agent
+│   ├── agents/                        # (empty — all functionality moved to skills)
 │   ├── commands/                      # Slash commands (/update-*, /init-context, etc.)
 │   ├── skills/                        # Claude Code skills
 │   │   ├── prd/                       # PRD generation (interactive, main conversation)
-│   │   ├── flow-designer/             # Flow design (interactive, main conversation)
+│   │   ├── flow-designer/             # Flow design → Obsidian canvas + documentation
+│   │   ├── screen-map/                # Screen architecture map → Obsidian canvas (derived from flow)
+│   │   ├── frontend-ui/               # UI specifications (platform-aware, template-based)
+│   │   ├── backend-spec/              # Backend specs (stack-aware, template-based)
 │   │   ├── opportunity-tree/          # Opportunity tree (Obsidian Canvas, Teresa Torres methodology)
 │   │   ├── repo-structure/            # File storage conventions & naming protocols
 │   │   ├── skill-creator/             # Skill creation guide
 │   │   └── release/                   # Template release workflow (Product_lifecycle only)
 │   └── COMMANDS_README.md
-├── docs/                              # Technical documentation
-│   ├── product/                       # Roadmap, PRDs, PRD drafts, opportunity tree
-│   │   ├── prd-drafts/                # Lightweight drafts maturing toward full PRDs
-│   │   └── User Discovery/            # Discovery research and opportunity tree files
-│   ├── architecture/                  # Tech stack, DB schema, system design
-│   ├── design/                        # UI design system, colors, assets
+├── docs/                              # Version-controlled product & technical documentation
+│   ├── product/                       # Feature specs, UI specs, backend specs
+│   │   └── prd-drafts/                # PRDs, flow canvases, screen maps (all feature artifacts)
+│   ├── architecture/                  # Tech stack, DB schema, system design (read by skills)
+│   ├── design/                        # UI design system, colors, assets (read by skills)
 │   └── deployment/                    # Local setup, env vars, CI/CD
-├── hq/                                # Product and business context
+├── hq/                                # Product and business context (read by skills)
 │   ├── research/                      # Market analysis, competitive analysis
 │   ├── ideas/                         # Ideas inbox (raw brainstorms)
-│   ├── personas/                      # User personas
+│   ├── personas/                      # User personas (read by prd, flow-designer)
 │   ├── decisions/                     # Product and design decisions
-│   └── brand/                         # Brand assets
-├── AI_Output/                         # Agent-generated docs (version controlled, staging area)
-│   └── doc_[Feature_Name]/            # Feature documentation folders
-├── context_knowledge/                 # Private knowledge base (gitignored)
+│   └── brand/                         # Brand assets (read by frontend-ui)
+├── context_knowledge/                 # Private runtime knowledge base (gitignored)
 │   ├── Vision_[Product].md
 │   ├── User_persona.md
 │   ├── [Product]_App_Flow.md
@@ -65,13 +62,27 @@ Product_lifecycle/
 
 The typical workflow for a new feature follows this pipeline:
 
-1. **PRD** — Use the `prd` skill (interactive Q&A in main conversation)
-2. **Flow Design** — Use the `flow-designer` skill (interactive co-design in main conversation)
-3. **UI Specs** — Use `frontendUIAgent` (subagent, produces UI specs + Figma prompt)
-4. **Backend Specs** — Use `backendAgent` (subagent, produces API contracts + schema + logic)
-5. **ER Diagram** — Use `er-diagram-generator` (subagent, optional)
+| Step | Skill | Output | Path |
+|------|-------|--------|------|
+| 1. PRD | `prd` | `[Feature]_PRD.md` | `docs/product/prd-drafts/` |
+| 2. Flow Design | `flow-designer` | `[Feature]_Flow.canvas` + `[Feature]_Flow_Documentation.md` | `docs/product/prd-drafts/` |
+| 3. Screen Map | `screen-map` | `[Feature]_Screen_Map.canvas` | `docs/product/prd-drafts/` |
+| 4. UI Specs | `frontend-ui` | `[Feature]_UI_Specs.md` | `docs/product/` |
+| 5. Backend Specs | `backend-spec` | `[Feature]_API_Contracts.md` + `[Feature]_DB_Schema.*` + `[Feature]_Backend_Logic.md` | `docs/product/` |
 
-All outputs are saved to `AI_Output/doc_[Feature_Name]/`. For file storage conventions, see the `repo-structure` skill.
+All skills read project context from `docs/` and `hq/` before generating output. For file storage conventions, see the `repo-structure` skill.
+
+### Context read by skills
+
+| What | Path | Used by |
+|------|------|---------|
+| Tech stack / platform | `docs/architecture/` | `frontend-ui`, `backend-spec` |
+| Design system | `docs/design/` | `frontend-ui`, `screen-map` |
+| Brand guidelines | `hq/brand/` | `frontend-ui` |
+| User personas | `hq/personas/` | `prd`, `flow-designer` |
+| Research / benchmarks | `hq/research/` | `prd` |
+| Opportunity tree | `context_knowledge/opportunity_tree.canvas` | `prd` |
+| Interview data | `context_knowledge/` | `prd` |
 
 ---
 
@@ -108,7 +119,7 @@ Bootstrap a new repo by creating ALL context_knowledge files interactively.
 **Cross-file dependencies:**
 - After updating `opportunity_tree.canvas`, run `/update-interview-summary` to sync entries
 - The interview summary `id` field must match reference numbers extracted from canvas card text (first line, e.g., `"1.1.1  Title"`)
-- All agents reference these files — changes propagate to future PRDs, flows, and specs
+- All skills reference these files — changes propagate to future PRDs, flows, and specs
 
 ---
 
@@ -136,7 +147,7 @@ Use the `/release` skill. It guides through:
 
 **Version semantics:**
 - `patch` — fixes, wording improvements, small tweaks
-- `minor` — new skills, agents, or commands (backwards compatible)
+- `minor` — new skills or commands (backwards compatible)
 - `major` — breaking changes (renamed files, changed copier.yml variables)
 
 ### What gets copied to derived projects

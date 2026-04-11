@@ -12,6 +12,13 @@ Derived projects sync updates with: `copier update`
 
 ---
 
+## [v1.5.0] — 2026-04-11
+
+### Added
+- `update-roadmap` skill — manages `ROADMAP.md` with two operations: sync checkboxes from file existence and frontmatter `status` field (via `sync_roadmap.js`), and add new feature blocks following the repo naming convention
+
+---
+
 ## [v1.4.0] — 2026-03-30
 
 ### Added

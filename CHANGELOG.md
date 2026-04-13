@@ -10,6 +10,10 @@ Derived projects sync updates with: `copier update`
 
 ## [Unreleased]
 
+---
+
+## [v2.1.0] — 2026-04-13
+
 ### Added
 - `.claude/skills/prototype/` — new skill for creating and iterating on external prototypes (Lovable, Replit, Bolt, v0); generates self-contained specs the user pastes into the tool
 - `prototypes/` — new top-level directory for prototype artifacts per feature

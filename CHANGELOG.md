@@ -10,6 +10,10 @@ Derived projects sync updates with: `copier update`
 
 ## [Unreleased]
 
+---
+
+## [v2.0.0] — 2026-04-13
+
 ### Changed
 - `CLAUDE.md` — slimmed from 166 to 58 lines; removed redundant sections (Context Knowledge Commands, Template Management), simplified repo tree to directories only, added reference lines pointing to skills/commands for detail
 - `init-context.md`, `update-vision.md`, `init-project.md` — migrated all paths from `context_knowledge/` to canonical locations: `hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, `docs/product/`
@@ -20,6 +24,44 @@ Derived projects sync updates with: `copier update`
 
 ### Removed
 - `context_knowledge/` as a concept — files redistributed to their semantic homes in `hq/` and `docs/product/`; the directory no longer exists as a special location
+
+### Migration — required after `copier update`
+
+Your `context_knowledge/` files are not moved automatically. Run these commands from your project root:
+
+```bash
+# Vision
+mv context_knowledge/Vision_*.md hq/
+
+# Persona
+mv context_knowledge/User_persona.md hq/personas/
+
+# App flow
+mv context_knowledge/*_App_Flow.md docs/product/
+
+# Opportunity tree
+mv context_knowledge/opportunity_tree.canvas hq/
+mv context_knowledge/opportunity_tree.md hq/
+
+# Research
+mv context_knowledge/*_interview_summary.json hq/research/
+mv context_knowledge/Benchmark_*.json hq/research/
+
+# Decisions
+mv context_knowledge/Notifications_Touchpoints.json hq/decisions/
+
+# Any other files still in context_knowledge/ → move to the closest hq/ subfolder
+
+# Remove the empty directory
+rmdir context_knowledge/
+```
+
+Then commit:
+
+```bash
+git add hq/ docs/product/ context_knowledge/
+git commit -m "chore: migrate context_knowledge/ to hq/ and docs/product/ (v2.0.0)"
+```
 
 ---
 

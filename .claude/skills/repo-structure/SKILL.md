@@ -40,6 +40,7 @@ Implementation specs produced after design is complete:
 | `screen-map` | `[Feature_Name]_Screen_Map.canvas` | `docs/product/prd-drafts/` |
 | `frontend-ui` | `[Feature_Name]_UI_Specs.md` | `docs/product/` |
 | `backend-spec` | `[Feature_Name]_API_Contracts.md`, `[Feature_Name]_DB_Schema.*`, `[Feature_Name]_Backend_Logic.md` | `docs/product/` |
+| `prototype` | `prototype-config.md`, `prototype-changelog.md`, `prototype-spec-v1.md`, `v1.N-modifications.md` | `prototypes/[Feature_Name]/` |
 
 ## Command Output Mapping
 

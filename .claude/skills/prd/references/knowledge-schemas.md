@@ -47,7 +47,7 @@ Each node is a card with:
 }
 ```
 
-A human-readable sync file is also maintained at `context_knowledge/opportunity_tree.md`.
+A human-readable sync file is also maintained at `hq/opportunity_tree.md`.
 
 ## *_interview_summary.json
 
@@ -90,8 +90,8 @@ The filename includes a date prefix (e.g., `20251012_interview_summary.json`). U
 ## Cross-referencing
 
 To build a complete picture for a PRD:
-1. Find the opportunity node in `opportunity_tree.canvas` — extract reference number from first line of `text` (e.g., `"1.2.3  Title\n\n..."` → id `1.2.3`)
-2. Look up the same ID in `*_interview_summary.json` for user evidence
-3. Check `Benchmark_[Product].json` for competitive context
-4. Verify alignment with `Vision_[Product].md` pillars
-5. Check `[Product]_App_Flow.md` for where the feature fits in the current journey
+1. Find the opportunity node in `hq/opportunity_tree.canvas` — extract reference number from first line of `text` (e.g., `"1.2.3  Title\n\n..."` → id `1.2.3`)
+2. Look up the same ID in `hq/research/*_interview_summary.json` for user evidence
+3. Check `hq/research/Benchmark_[Product].json` for competitive context
+4. Verify alignment with `hq/Vision_[Product].md` pillars
+5. Check `docs/product/[Product]_App_Flow.md` for where the feature fits in the current journey

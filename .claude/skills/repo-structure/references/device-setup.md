@@ -2,12 +2,9 @@
 
 After cloning this repository, several folders need to be created because they are gitignored.
 
-## Step 1: Set Up context_knowledge/
+## Step 1: Populate the knowledge base
 
-```bash
-mkdir -p context_knowledge
-# Then run /init-context in Claude Code to populate files
-```
+The knowledge base files (`hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, `docs/product/`) are tracked in git — they are already present after cloning. Run `/init-context` in Claude Code to create them interactively if starting a fresh project.
 
 ## Step 2: Set Up features/ (OneDrive Symlink)
 
@@ -40,7 +37,7 @@ echo 'OPENAI_API_KEY=your-key-here' > User_discovery/.env
 ## Step 5: Verify Setup
 
 ```bash
-ls context_knowledge/     # Should have files after /init-context
+ls hq/ hq/personas/ hq/research/  # Should have files after /init-context
 ls features/              # Should show OneDrive contents
 ls Transcriptions/        # Should show symlinks
 ```

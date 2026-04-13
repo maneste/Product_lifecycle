@@ -46,8 +46,14 @@ Implementation specs produced after design is complete:
 | Command | Output Destination |
 |---------|-------------------|
 | `/transcripts` | `features/doc_User_Research/outputs/` |
-| `/init-context` | `context_knowledge/` |
-| `/update-*` | `context_knowledge/` |
+| `/init-context` | `hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, `docs/product/` |
+| `/update-vision` | `hq/` |
+| `/update-persona` | `hq/personas/` |
+| `/update-app-flow` | `docs/product/` |
+| `/update-opportunity-tree` | `hq/` |
+| `/update-interview-summary` | `hq/research/` |
+| `/update-benchmark` | `hq/research/` |
+| `/update-notifications` | `hq/decisions/` |
 
 ---
 
@@ -62,12 +68,12 @@ Skills read project context from these locations before generating output:
 | Brand guidelines | `hq/brand/` |
 | User personas | `hq/personas/` |
 | Research / benchmarks | `hq/research/` |
-| Opportunity tree | `context_knowledge/opportunity_tree.canvas` |
-| Interview data | `context_knowledge/` |
+| Opportunity tree | `hq/opportunity_tree.canvas` |
+| App flow | `docs/product/[Product]_App_Flow.md` |
+| Product vision | `hq/Vision_[Product].md` |
+| Notifications strategy | `hq/decisions/Notifications_Touchpoints.json` |
 
-## context_knowledge/ (Private - Gitignored)
-
-Private runtime knowledge base skills read from. Use `/init-context` to create, `/update-*` commands to modify.
+Use `/init-context` to create these files interactively. Use `/update-*` commands to modify individual files.
 
 ## features/ (OneDrive Synced - Not Version Controlled)
 

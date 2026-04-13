@@ -30,7 +30,8 @@ These folders and files are already included in the repository:
 | `.claude/agents/` | Custom agent configurations (prdDiscovery, flowDesigner, frontendUI, backend) |
 | `.claude/commands/` | Custom slash commands (/init-context, /update-*, /transcripts) |
 | `AI_Output/` | Agent-generated feature documentation (staging area) |
-| `context_knowledge/` | Private knowledge base (opportunity tree, benchmarks, personas, etc.) |
+| `hq/` | Knowledge base — vision, opportunity tree, personas, research, decisions |
+| `docs/product/` | Feature docs and app flow |
 | `User_discovery/` | User interview processing scripts and tools |
 | `feature-template/` | Code and implementation templates |
 
@@ -179,9 +180,9 @@ ls Transcriptions/1st_consultation_source/ > /dev/null 2>&1 && echo "OK" || echo
 echo "--- processed_interviews ---"
 ls -d Transcriptions/processed_interviews/ > /dev/null 2>&1 && echo "OK" || echo "MISSING: processed_interviews folder"
 
-# 6. Check context_knowledge exists (should be in git)
-echo "--- context_knowledge ---"
-ls context_knowledge/opportunity_tree.json > /dev/null 2>&1 && echo "OK" || echo "MISSING: context_knowledge files"
+# 6. Check knowledge base exists
+echo "--- hq/ knowledge base ---"
+ls hq/opportunity_tree.canvas > /dev/null 2>&1 && echo "OK" || echo "MISSING: run /init-context to create knowledge base files"
 
 # 7. Check .env exists for User_discovery
 echo "--- .env ---"
@@ -228,7 +229,8 @@ Product_lifecycle/
 ├── .claude/agents/                    # Agent configs
 ├── .claude/commands/                  # Slash commands
 ├── AI_Output/                         # Feature docs staging area
-├── context_knowledge/                 # Knowledge base (opportunity tree, personas, etc.)
+├── hq/                                # Knowledge base (vision, opportunity tree, personas, research)
+├── docs/product/                      # Feature docs, app flow
 ├── User_discovery/                    # Interview processing scripts
 ├── feature-template/                  # Code templates
 ├── claude.md                          # Project instructions

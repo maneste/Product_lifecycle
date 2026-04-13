@@ -102,4 +102,4 @@ git commit -m "chore: init project from Product_lifecycle template [version]"
 Tell the user:
 - Project is now tracked as **[product_name]** on template version **[version]**
 - To sync future improvements: run `/productlifecycle-update`
-- Next step: run `/init-context` to create the `context_knowledge/` files
+- Next step: run `/init-context` to create the knowledge base files in `hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, and `docs/product/`

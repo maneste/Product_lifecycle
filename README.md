@@ -75,14 +75,16 @@ Product_lifecycle/
 │   ├── design/                # UI design system, colors, assets
 │   └── deployment/            # Local setup, env vars, CI/CD
 ├── hq/
-│   ├── research/              # Market analysis, competitive analysis
-│   ├── ideas/                 # Ideas inbox (raw brainstorms)
-│   ├── personas/              # User personas
-│   ├── decisions/             # Product and design decisions
+│   ├── Vision_[Product].md    # Product vision and positioning
+│   ├── opportunity_tree.canvas # Opportunity tree (Obsidian Canvas)
+│   ├── opportunity_tree.md    # Opportunity tree markdown sync
+│   ├── research/              # Benchmark_[Product].json, *_interview_summary.json
+│   ├── personas/              # User_persona.md
+│   ├── decisions/             # Notifications_Touchpoints.json
+│   ├── ideas/                 # Raw brainstorms
 │   └── brand/                 # Brand assets
-├── AI_Output/                 # Agent-generated docs (version controlled)
-│   └── doc_[Feature]/
-├── context_knowledge/         # Private knowledge base (gitignored)
+├── docs/product/
+│   └── [Product]_App_Flow.md  # Complete user journey flowchart
 ├── User_discovery/            # Interview processing pipeline (Python + OpenAI)
 ├── Transcriptions/            # Raw transcripts (gitignored, Google Drive symlink)
 ├── feature-template/          # Implementation templates
@@ -103,13 +105,13 @@ Product_lifecycle/
 
 ### 1. Initialize the knowledge base
 
-On first setup, run the init command to create your `context_knowledge/` files interactively:
+On first setup, run the init command to create your knowledge base files interactively:
 
 ```
 /init-context
 ```
 
-This creates all knowledge base files in order: product vision, user persona, app flow, opportunity tree, interview summary, benchmark analysis, and notification strategy.
+This creates all files in order across `hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, and `docs/product/`: product vision, user persona, app flow, opportunity tree, interview summary, benchmark analysis, and notification strategy.
 
 ### 2. Run user research (optional)
 
@@ -207,8 +209,9 @@ Keep context files up to date with individual update commands:
 ## Adapting This Template
 
 1. Use GitHub's **"Use this template"** button to create a new repo
-2. Run `/init-context` to populate `context_knowledge/` for your product
-3. Update `CLAUDE.md` if you change any folder names or conventions
+2. Run `/init-project` once to set up Copier tracking
+3. Run `/init-context` to populate the knowledge base for your product
+4. Update `CLAUDE.md` if you change any folder names or conventions
 4. Add your transcript files to `Transcriptions/transcription_source/`
 
 ### Syncing Template Updates

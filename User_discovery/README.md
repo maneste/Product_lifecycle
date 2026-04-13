@@ -48,7 +48,7 @@ bin/aggregate
    - Option 3: Pass as argument: `--api-key "your-key"`
    - Option 4: Enter when prompted (script will ask if not found)
 
-2. **Opportunity Tree**: Should exist at `context_knowledge/opportunity_tree.json`
+2. **Opportunity Tree**: Should exist at `hq/opportunity_tree.canvas`
    - The script will auto-generate the system prompt from this file
    - If you want a custom prompt, use `--prompt-path`
 
@@ -86,7 +86,7 @@ bin/process --dry-run
 **What it does:**
 - Scans `Transcriptions/transcription_source/` for interview files
 - Filters for target interviews (default: "Consigue un 50% de descuento")
-- **Auto-generates system prompt** from `context_knowledge/opportunity_tree.json` (no manual prompt needed!)
+- **Auto-generates system prompt** from `hq/opportunity_tree.canvas` (no manual prompt needed!)
 - Processes each interview with OpenAI
 - Saves outputs to `Transcriptions/processed_interviews/`:
   - JSON: `[Date(YYYMMDD) opportunities: user_name].json`
@@ -136,8 +136,8 @@ Product_lifecycle/
 │       ├── YYYYMMDD Analysis for user_name.md
 │       └── YYYYMMDD opportunities: user_name.json
 │
-└── context_knowledge/               # Knowledge base
-    └── opportunity_tree.json        # Used to auto-generate prompts
+└── hq/                              # Knowledge base
+    └── opportunity_tree.canvas      # Used to auto-generate prompts
 ```
 
 **Note:** `Transcriptions/` is gitignored. After cloning, you must set it up manually. See the [Repository Setup Guide](../Development_and_Deployment_Guide.md#repository-setup-after-cloning).
@@ -146,7 +146,7 @@ Product_lifecycle/
 
 **Good news: You don't need to create a prompt manually!**
 
-The script **auto-generates** the system prompt from `context_knowledge/opportunity_tree.json`. It:
+The script **auto-generates** the system prompt from `hq/opportunity_tree.canvas`. It:
 1. Loads the opportunity tree structure
 2. Generates a prompt that includes the full tree
 3. Instructs OpenAI to validate opportunities against the tree
@@ -294,7 +294,7 @@ model="gpt-4o-mini"  # Change to "gpt-4" or other model
 **Problem**: Aggregate script can't find opportunity tree
 
 **Solution**:
-- Ensure `context_knowledge/opportunity_tree.json` exists
+- Ensure `hq/opportunity_tree.canvas` exists
 - Check that the file is at the project root level
 
 ### Transcriptions folder not found
@@ -345,5 +345,5 @@ Both can coexist and serve different purposes.
 ## Related Documentation
 
 - **Repository Setup**: `Development_and_Deployment_Guide.md` (for Transcriptions folder setup)
-- **Opportunity Tree**: `context_knowledge/opportunity_tree.json`
+- **Opportunity Tree**: `hq/opportunity_tree.canvas`
 - **User Research Module**: `user_research/README.md`

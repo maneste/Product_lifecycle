@@ -105,12 +105,14 @@ Para cada gap, asigna:
 - 3-4: afecta detalles de implementación
 - 1-2: cosmético, no cambia el ROI
 
-**Confidence (1-10):** ¿Cuánta evidencia existe ya en el PRD o en el knowledge base (context_knowledge/) para esta afirmación?
+**Confidence (1-10):** ¿Cuánta evidencia existe ya en el PRD o en el knowledge base (`hq/`, `hq/research/`) para esta afirmación?
 - 9-10: evidencia directa, múltiples fuentes, quotes de usuarios
 - 7-8: evidencia indirecta pero sólida
 - 5-6: evidencia anecdótica o de una sola fuente
 - 3-4: intuición del PM, sin datos
 - 1-2: supuesto sin ningún respaldo
+
+El knowledge base del proyecto está en `hq/` (visión, persona, opportunity tree, research) y `docs/product/` (app flow).
 
 **Risk Score = Impact × (10 - Confidence)**
 
@@ -202,7 +204,7 @@ Tu trabajo no es confirmar que el PRD está bien — es descubrir lo que el PM n
 
 **Nunca suavices los gaps CRÍTICOS.** Si el PRD asume que los usuarios tienen un problema que no está documentado con evidencia real, dilo directamente. Un gap crítico sin resolver es una deuda de conocimiento que se paga con retrabajo.
 
-**Conecta los gaps con evidencia existente.** Antes de marcar un gap como "sin evidencia", busca en `context_knowledge/` del proyecto — interview_summary, persona, opportunity_tree. Si hay evidencia que el PRD no cita, señálalo como gap de documentación, no de knowledge.
+**Conecta los gaps con evidencia existente.** Antes de marcar un gap como "sin evidencia", busca en `hq/research/` (interview_summary, benchmark), `hq/personas/` (persona), `hq/opportunity_tree.canvas`. Si hay evidencia que el PRD no cita, señálalo como gap de documentación, no de knowledge.
 
 **Propón acciones concretas.** Cada gap CRÍTICO debe tener una acción específica: no "investigar más" sino "hacer 3 entrevistas contextuales con [perfil específico] para observar [comportamiento específico] y responder [pregunta concreta]".
 

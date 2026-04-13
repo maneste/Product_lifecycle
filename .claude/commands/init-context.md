@@ -1,28 +1,26 @@
 ---
-description: Initialize context_knowledge folder - create all knowledge base files for a new repo setup
+description: Initialize knowledge base files - create all context files for a new repo setup
 ---
 
 # Initialize Context Knowledge Command
 
-You are helping the user set up the `context_knowledge/` folder from scratch. This is the first step when starting with a new clone of the Product_lifecycle repository or when creating a new product context.
+You are helping the user set up the knowledge base files from scratch. This is the first step when starting with a new clone of the Product_lifecycle repository or when creating a new product context.
 
 ## Overview
 
-The `context_knowledge/` folder is the private knowledge base that all agents (prdDiscoveryAgent, flowDesignerAgent, frontendUIAgent, backendAgent) read from to generate informed feature documentation. Without these files, agents cannot produce evidence-based outputs.
+These files are the knowledge base that all skills (prd, flow-designer, frontend-ui, backend-spec) read from to generate informed feature documentation. Without these files, skills cannot produce evidence-based outputs.
 
 ## Required Files
 
-The following files must be created in `context_knowledge/`:
-
-| # | File | Format | Purpose |
-|---|------|--------|---------|
-| 1 | `Vision_Balance.md` | Markdown | Product vision, mission, and strategic positioning |
-| 2 | `User_persona.md` | Markdown | Primary user persona with demographics, motivations, frustrations |
-| 3 | `Balance_App_Flow.md` | Markdown + Mermaid | Complete user journey flowchart |
-| 4 | `opportunity_tree.canvas` + `opportunity_tree.md` | Obsidian Canvas + Markdown | Hierarchical opportunity framework from user research |
-| 5 | `interview_summary.json` | JSON | User interview evidence mapped to opportunities |
-| 6 | `Benchmark_Balance.json` | JSON | Competitive landscape analysis |
-| 7 | `Notifications_Touchpoints.json` | JSON | Notification and touchpoint strategy |
+| # | File | Path | Format | Purpose |
+|---|------|------|--------|---------|
+| 1 | `Vision_[Product].md` | `hq/` | Markdown | Product vision, mission, and strategic positioning |
+| 2 | `User_persona.md` | `hq/personas/` | Markdown | Primary user persona with demographics, motivations, frustrations |
+| 3 | `[Product]_App_Flow.md` | `docs/product/` | Markdown + Mermaid | Complete user journey flowchart |
+| 4 | `opportunity_tree.canvas` + `opportunity_tree.md` | `hq/` | Obsidian Canvas + Markdown | Hierarchical opportunity framework from user research |
+| 5 | `interview_summary.json` | `hq/research/` | JSON | User interview evidence mapped to opportunities |
+| 6 | `Benchmark_[Product].json` | `hq/research/` | JSON | Competitive landscape analysis |
+| 7 | `Notifications_Touchpoints.json` | `hq/decisions/` | JSON | Notification and touchpoint strategy |
 
 ## Your Task
 
@@ -31,12 +29,7 @@ The following files must be created in `context_knowledge/`:
 First, check what already exists:
 
 ```bash
-ls -la context_knowledge/ 2>/dev/null
-```
-
-If the folder doesn't exist:
-```bash
-mkdir -p context_knowledge
+ls hq/ hq/personas/ hq/research/ hq/decisions/ docs/product/ 2>/dev/null
 ```
 
 Report to the user which files already exist and which are missing. Ask if they want to:
@@ -44,7 +37,7 @@ Report to the user which files already exist and which are missing. Ask if they 
 2. **Start fresh** (recreate all files from scratch)
 3. **Skip specific files** for now
 
-### Step 1: Product Vision (`Vision_Balance.md`)
+### Step 1: Product Vision (`Vision_[Product].md`)
 
 Ask the user to describe their product. Guide them with these questions (ask ONE at a time, conversationally):
 
@@ -90,7 +83,7 @@ Ask the user to describe their product. Guide them with these questions (ask ONE
 [Closing vision statement]
 ```
 
-**Save to:** `context_knowledge/Vision_Balance.md`
+**Save to:** `hq/Vision_[Product].md`
 
 ---
 
@@ -154,11 +147,11 @@ What They Need from a Solution:
 - [Need 4]
 ```
 
-**Save to:** `context_knowledge/User_persona.md`
+**Save to:** `hq/personas/User_persona.md`
 
 ---
 
-### Step 3: App Flow (`Balance_App_Flow.md`)
+### Step 3: App Flow (`[Product]_App_Flow.md`)
 
 Ask the user to walk you through the user journey. Guide with these questions (ONE at a time):
 
@@ -206,7 +199,7 @@ flowchart TD
 - Group with `%% ─── Section Name` comments
 - Add a "Flow Sections Explained" section below the diagram
 
-**Save to:** `context_knowledge/Balance_App_Flow.md`
+**Save to:** `docs/product/[Product]_App_Flow.md`
 
 ---
 
@@ -236,7 +229,7 @@ Ask the user: "What is your north star — the key outcome your product creates 
 }
 ```
 
-**Save to:** `context_knowledge/opportunity_tree.canvas`
+**Save to:** `hq/opportunity_tree.canvas`
 
 Then use the `opportunity-tree` skill to collaboratively build out the full tree by adding opportunity areas and sub-opportunities. The skill handles all node IDs, colors, y-level alignment, and canvas conventions.
 
@@ -256,7 +249,7 @@ Then use the `opportunity-tree` skill to collaboratively build out the full tree
 *(Add opportunity areas here as the canvas is built out)*
 ```
 
-**Save to:** `context_knowledge/opportunity_tree.md`
+**Save to:** `hq/opportunity_tree.md`
 
 **Reference number convention (used by interview summary and PRD):**
 - Opportunity areas: `1.1`, `1.2`, `2.1`, …
@@ -322,13 +315,13 @@ Ask the user:
 - `interview_count` = length of unique `interview_names`
 - `interview_count_text` = human-readable format (e.g., "5 interviews")
 
-**Save to:** `context_knowledge/interview_summary.json`
+**Save to:** `hq/research/interview_summary.json`
 
 **Naming convention:** The file name should include the date if it's generated from real data: `YYYYMMDD_interview_summary.json`. If it's an empty scaffold, just use `interview_summary.json`.
 
 ---
 
-### Step 6: Competitive Benchmark (`Benchmark_Balance.json`)
+### Step 6: Competitive Benchmark (`Benchmark_[Product].json`)
 
 Ask the user about their competitive landscape:
 
@@ -378,7 +371,7 @@ Ask the user about their competitive landscape:
 
 **Feature keys should be consistent across all competitors.** Ask the user what feature dimensions matter most for comparison.
 
-**Save to:** `context_knowledge/Benchmark_Balance.json`
+**Save to:** `hq/research/Benchmark_[Product].json`
 
 ---
 
@@ -418,7 +411,7 @@ Ask the user about their communication strategy:
 ]
 ```
 
-**Save to:** `context_knowledge/Notifications_Touchpoints.json`
+**Save to:** `hq/decisions/Notifications_Touchpoints.json`
 
 ---
 
@@ -428,23 +421,23 @@ After creating all files, validate:
 
 1. **Check all files exist:**
 ```bash
-ls -la context_knowledge/
+ls hq/Vision_*.md hq/personas/User_persona.md docs/product/*_App_Flow.md hq/opportunity_tree.canvas hq/opportunity_tree.md hq/research/*interview_summary* hq/research/Benchmark_*.json hq/decisions/Notifications_Touchpoints.json
 ```
 
 2. **Validate JSON/canvas files are valid:**
 ```bash
-python3 -c "import json; json.load(open('context_knowledge/opportunity_tree.canvas'))" && echo "opportunity_tree.canvas: Valid"
-python3 -c "import json; json.load(open('context_knowledge/Benchmark_Balance.json'))" && echo "Benchmark_Balance.json: Valid"
-python3 -c "import json; json.load(open('context_knowledge/Notifications_Touchpoints.json'))" && echo "Notifications_Touchpoints.json: Valid"
+python3 -c "import json; json.load(open('hq/opportunity_tree.canvas'))" && echo "opportunity_tree.canvas: Valid"
+python3 -c "import json; json.load(open('hq/research/Benchmark_'$(ls hq/research/Benchmark_*.json | head -1 | xargs basename)'))" && echo "Benchmark: Valid"
+python3 -c "import json; json.load(open('hq/decisions/Notifications_Touchpoints.json'))" && echo "Notifications_Touchpoints.json: Valid"
 ```
 
 3. **Validate interview_summary matches opportunity_tree canvas:**
 ```bash
 python3 -c "
 import json, os, re
-canvas = json.load(open('context_knowledge/opportunity_tree.canvas'))
-summary_file = [f for f in os.listdir('context_knowledge/') if 'interview_summary' in f][0]
-summary = json.load(open(f'context_knowledge/{summary_file}'))
+canvas = json.load(open('hq/opportunity_tree.canvas'))
+summary_file = [f for f in os.listdir('hq/research/') if 'interview_summary' in f][0]
+summary = json.load(open(f'hq/research/{summary_file}'))
 
 ref_pattern = re.compile(r'^(\d+(?:\.\d+)+)\s{2}')
 tree_ids = set()
@@ -471,7 +464,7 @@ Present a table showing:
 - Size (lines or entries count)
 
 Tell the user:
-- "Your context_knowledge is ready! All agents (prdDiscoveryAgent, flowDesignerAgent, frontendUIAgent, backendAgent) will now use these files to generate evidence-based feature documentation."
+- "Your knowledge base is ready! All skills (prd, flow-designer, frontend-ui, backend-spec) will now use these files to generate evidence-based feature documentation."
 - "To update individual files later, use the specific update commands: `/update-vision`, `/update-persona`, `/update-app-flow`, `/update-opportunity-tree`, `/update-interview-summary`, `/update-benchmark`, `/update-notifications`."
 
 ## Important Notes
@@ -482,4 +475,3 @@ Tell the user:
 - **Validate as you go** - Check JSON validity after creating each JSON file
 - **Don't skip steps** - Each file builds context for the next (Vision → Persona → Flow → Opportunities → Evidence → Benchmark → Notifications)
 - **Save after each file** - Don't wait until the end to save everything
-- **The context_knowledge/ folder is gitignored** - Remind the user these files stay local and need to be synced separately (see claude.md for sync options)

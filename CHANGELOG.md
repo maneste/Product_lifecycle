@@ -10,6 +10,17 @@ Derived projects sync updates with: `copier update`
 
 ## [Unreleased]
 
+### Changed
+- `CLAUDE.md` — slimmed from 166 to 58 lines; removed redundant sections (Context Knowledge Commands, Template Management), simplified repo tree to directories only, added reference lines pointing to skills/commands for detail
+- `init-context.md`, `update-vision.md`, `init-project.md` — migrated all paths from `context_knowledge/` to canonical locations: `hq/`, `hq/personas/`, `hq/research/`, `hq/decisions/`, `docs/product/`
+- `prd/SKILL.md`, `prd/references/knowledge-schemas.md` — updated knowledge base read paths to match new locations
+- `opportunity-tree/SKILL.md`, `opportunity-tree/references/canvas-conventions.md` — canvas path updated to `hq/opportunity_tree.canvas`
+- `frontend-ui/SKILL.md`, `gap-analysis/SKILL.md` — updated `context_knowledge/` references to `hq/`
+- `repo-structure/SKILL.md`, `repo-structure/references/device-setup.md` — command output mapping table rebuilt; removed `context_knowledge/` section
+
+### Removed
+- `context_knowledge/` as a concept — files redistributed to their semantic homes in `hq/` and `docs/product/`; the directory no longer exists as a special location
+
 ---
 
 ## [v1.5.0] — 2026-04-11

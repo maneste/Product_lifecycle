@@ -2,8 +2,8 @@
 
 ## Files
 
-- **Canvas (source of truth):** `context_knowledge/opportunity_tree.canvas`
-- **Markdown reference:** `context_knowledge/opportunity_tree.md` (keep in sync after content changes)
+- **Canvas (source of truth):** `hq/opportunity_tree.canvas`
+- **Markdown reference:** `hq/opportunity_tree.md` (keep in sync after content changes)
 
 ## Format
 

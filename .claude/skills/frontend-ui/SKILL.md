@@ -16,7 +16,7 @@ Read `docs/architecture/` — look for any file describing the tech stack (e.g. 
 Extract:
 - **Platform:** mobile native (React Native / iOS / Android) | web app | PWA
 - **Framework:** React Native, Next.js, Vue, etc.
-- **Design tool:** Figma, Pencil, other — check if `Instructions_Figma_Make.json` exists in `context_knowledge/`
+- **Design tool:** Figma, Pencil, other — check if `Instructions_Figma_Make.json` exists in `hq/`
 
 If no tech stack file exists, ask the user before proceeding:
 > "I couldn't find a tech stack definition in docs/architecture/. What platform and framework is this project using?"

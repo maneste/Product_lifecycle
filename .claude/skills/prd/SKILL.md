@@ -13,13 +13,13 @@ Follow these steps in order:
 
 ### Step 1: Read the Knowledge Base
 
-Read the available files from `context_knowledge/` before doing anything else. Look for any of the following (not all may exist):
+Read the available files before doing anything else. Look for any of the following (not all may exist):
 
-1. `opportunity_tree.json` — hierarchical opportunity framework
-2. `*_interview_summary.json` — user evidence mapped to opportunities (find the actual filename with glob)
-3. `Benchmark_*.json` — competitive landscape
-4. `Vision_*.md` — strategic vision and positioning
-5. `*_App_Flow.md` — current app flow (Mermaid)
+1. `hq/opportunity_tree.canvas` — hierarchical opportunity framework
+2. `hq/research/*_interview_summary.json` — user evidence mapped to opportunities (find the actual filename with glob)
+3. `hq/research/Benchmark_*.json` — competitive landscape
+4. `hq/Vision_*.md` — strategic vision and positioning
+5. `docs/product/*_App_Flow.md` — current app flow (Mermaid)
 
 For schema details of JSON files, see `references/knowledge-schemas.md` if present.
 

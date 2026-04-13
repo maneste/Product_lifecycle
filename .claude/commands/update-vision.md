@@ -1,10 +1,10 @@
 ---
-description: Update the product vision document in context_knowledge
+description: Update the product vision document in hq/
 ---
 
 # Update Product Vision
 
-You are helping the user update `context_knowledge/Vision_Balance.md`.
+You are helping the user update `hq/Vision_[Product].md`.
 
 ## Your Task
 
@@ -13,7 +13,7 @@ You are helping the user update `context_knowledge/Vision_Balance.md`.
 Read the current vision file:
 
 ```
-context_knowledge/Vision_Balance.md
+hq/Vision_[Product].md
 ```
 
 Present a brief summary of the current content to the user:
